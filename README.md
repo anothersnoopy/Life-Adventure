@@ -2,6 +2,8 @@
 Enjoy your life as an adventure game
 
 ## Score_Plan
+
+### Good things
 Items | Score
 ------|-------
 Learn Words | 10
@@ -15,3 +17,12 @@ Do one thing good | 15
 Read good articles  | 15
 Clean Thinking | 20
 Get up before 7:30 am | 20
+Go out of home before 8:30 | 30
+
+### Bad things
+Items | Score
+S | -200 per time
+sleep after 11:30 pm | -20
+Play computer games during weekdays | -20 per time
+Dirty Thinking | -20
+Read/Watch dirty things on Internet | -50
