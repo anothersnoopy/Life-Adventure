@@ -21,6 +21,7 @@ Go out of home before 8:30 | 30
 
 ### Bad things
 Items | Score
+----- | -----
 S | -200 per time
 sleep after 11:30 pm | -20
 Play computer games during weekdays | -20 per time
