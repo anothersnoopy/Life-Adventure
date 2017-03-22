@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
 	Good good;
+	Bad bad;
 	Write write;
 	Data data;
 
@@ -13,10 +14,24 @@ int main()
 	data.read();//read yesterday's summary
 	write.date();//write today's date
 	write.table_head();
+	
 	good.word();
 	good.outhome();
 	good.cn_paper();
 	good.en_paper();
+	good.sleep_early();
+	good.sport();
+	good.OTG();
+	good.PP();
+	good.NFN();
+	good.sunny_mind();
+	good.review();
+	
+	bad.S();
+	bad.game_weekday();
+	bad.dark_mind();
+	bad.unhealthy_info();
+
 	write.summary();
 
 	
