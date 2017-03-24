@@ -37,6 +37,6 @@ Enjoy your life as an adventure game
 
 >`g++ main.cpp -o run`
 
-`./run`<
+>`./run`
 
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
