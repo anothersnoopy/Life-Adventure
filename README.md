@@ -42,5 +42,5 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 
-<center> March 24th 2017</center>
-<center> by Kevin G.(a Geo-dog/MD-dog, living in University of Chinese Academy of Science)</center>
+*by Kevin* 
+*in UCAS*
