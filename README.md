@@ -2,6 +2,8 @@
 
 Enjoy your life as an adventure game
 
+
+![background](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/1.jpg)
 -----
 
 
