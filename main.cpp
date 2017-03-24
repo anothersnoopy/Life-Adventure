@@ -19,7 +19,7 @@ int main()
 	good.outhome();
 	good.cn_paper();
 	good.en_paper();
-	good.sleep_early();
+	good.sleep();
 	good.sport();
 	good.OTG();
 	good.PP();
@@ -31,6 +31,8 @@ int main()
 	bad.game_weekday();
 	bad.dark_mind();
 	bad.unhealthy_info();
+	bad.UNB();
+	bad.MM();
 
 	write.summary();
 

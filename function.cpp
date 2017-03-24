@@ -3,13 +3,14 @@
 #include<sstream>
 using namespace std;
 
-#define PATH "/home/Kevin/Diary/8-field/diary.md"
+#define PATH "YOUR-PATH"
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
 total_slpe, total_spt, total_OTG, total_PP, total_NFN, \
 total_smd, total_rv;//total socres (Good)
 
-static int total_S, total_gmwd, total_dmd, total_uhi;//total scores(Bad)
+static int total_S, total_gmwd, total_dmd, total_uhi, total_UNB, \
+total_MM;//total scores(Bad)
 
 
 
@@ -25,7 +26,7 @@ Good::Good()//class Good constructor
 	out_score = 0;
 	cnpaper_score = 0;
 	enpaper_score = 0;
-	sleep_e_score = 0;
+	sleep_score = 0;
 	sport_score = 0;
 	OTG_score = 0;
 	PP_score = 0;
@@ -66,7 +67,7 @@ void Good::outhome()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		out_score += 10;
+		out_score += 20;
 	}
 	total_ot += out_score;
 	diary<<"| outhome score | "<<out_score<<" |"<<endl;
@@ -84,7 +85,7 @@ void Good::cn_paper()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		cnpaper_score = 10;
+		cnpaper_score = 100;
 	}
 
 	total_cnp += cnpaper_score;
@@ -105,7 +106,7 @@ void Good::en_paper()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		enpaper_score = 10;
+		enpaper_score = 200;
 	}
 
 	total_enp += enpaper_score;
@@ -114,7 +115,7 @@ void Good::en_paper()
 	diary.close();
 }
 
-void Good::sleep_early()// improve suggestion: input sleep time
+void Good::sleep()// improve suggestion: input sleep time
 {
 	ofstream diary;
 	diary.open(PATH,ios::app);
@@ -125,12 +126,20 @@ void Good::sleep_early()// improve suggestion: input sleep time
 	cin>>finish;
 	if(finish == 'y')
 	{
-		sleep_e_score = 10;
+		sleep_score = 25;
 	}
+	else 
+		{
+			cout<<"Later than 11:00 ? (y/n)"<<endl;
+			char temp;
+			cin>>temp;
+			if(temp == 'y')
+				sleep_score = -30;
+		}
 
-	total_slpe += sleep_e_score;
+	total_slpe += sleep_score;
 
-	diary<<"| sleep early | "<<sleep_e_score<<" |"<<endl;
+	diary<<"| sleep | "<<sleep_score<<" |"<<endl;
 	diary.close();
 }
 
@@ -146,7 +155,7 @@ void Good::sport()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		sport_score = 10;
+		sport_score = 25;
 	}
 
 	total_spt += sport_score;
@@ -167,7 +176,7 @@ void Good::OTG()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		OTG_score = 10;
+		OTG_score = 20;
 	}
 
 	total_OTG += OTG_score;
@@ -187,7 +196,7 @@ void Good::PP()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		PP_score = 10;
+		PP_score = 25;
 	}
 
 	total_PP += PP_score;
@@ -207,7 +216,7 @@ void Good::NFN()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		NFN_score = 10;
+		NFN_score = 20;
 	}
 
 	total_NFN += NFN_score;
@@ -227,7 +236,7 @@ void Good::sunny_mind()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		sunny_mind_score = 10;
+		sunny_mind_score = 20;
 	}
 
 	total_smd += sunny_mind_score;
@@ -249,7 +258,7 @@ void Good::review()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		review_score = 10;
+		review_score = 30;
 	}
 
 	total_rv += review_score;
@@ -271,6 +280,8 @@ Bad::Bad()// class Bad constructor
 	gamewkd_score = 0;
 	dark_mind_score = 0;
 	unhealthy_info_score = 0;
+	UNB_score = 0;
+	MM_score = 0;
 }
 	
 
@@ -290,6 +301,7 @@ void Bad::S()
 		cin>>i;
 		S_score = -200*i;
 	}
+	else S_score = 5;
 
 	total_S += S_score;
 
@@ -309,9 +321,10 @@ void Bad::game_weekday()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		gamewkd_score = -10;
+		gamewkd_score = -20;
 	}
-
+	else gamewkd_score = 5;
+	
 	total_gmwd += gamewkd_score;
 	
 	diary<<"| game on weekday | "<<gamewkd_score<<" |"<<endl;
@@ -331,7 +344,9 @@ void Bad::dark_mind()
 	{
 		dark_mind_score = -10;
 	}
-
+	
+	else dark_mind_score = 5;
+	
 	total_dmd += dark_mind_score;
 	
 	diary<<"| dark mind | "<<dark_mind_score<<" |"<<endl;
@@ -349,14 +364,65 @@ void Bad::unhealthy_info()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		unhealthy_info_score = -10;
+		unhealthy_info_score = -50;
 	}
+	
+	else unhealthy_info_score = 5;
 
 	total_uhi += unhealthy_info_score;
 	
 	diary<<"| unhealthy info | "<<unhealthy_info_score<<" |"<<endl;
 	diary.close();
 }
+
+
+void Bad::UNB()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"### Useless Net Browsing today ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		UNB_score = -20;
+	}
+	else UNB_score = 5;
+
+	total_UNB += UNB_score;
+	
+	diary<<"| Useless Net Browsing | "<<UNB_score<<" |"<<endl;
+	diary.close();
+}
+
+
+
+
+void Bad::MM()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"### Today when you get up, did you play mobile ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		MM_score = -30;
+	}
+	
+	else MM_score = 5;
+
+	total_MM += MM_score;
+	
+	diary<<"| Play mobile when get up | "<<MM_score<<" |"<<endl;
+	diary.close();
+}
+
+
 
 ////////////////////////////Others//////////////////////////////
 void Write::table_head()
@@ -400,13 +466,13 @@ void Data::read()// to read yesterday's data
 
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_smd[15],m_rv[15]\
-	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15];
+	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
 	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP>>m_NFN>>total_NFN\
 	>>m_smd>>total_smd>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
-	>>m_dmd>>total_dmd>>m_uhi>>total_uhi;
+	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM;
 	
 	infile.close();
 }
@@ -422,17 +488,41 @@ void Write::summary()
 ///////If add new items, you need edit this line below////////////
 	total_sc = total_wd + total_ot + total_cnp + total_enp + total_slpe\
 	+ total_spt + total_OTG + total_PP + total_NFN + total_smd + total_rv\
-	+ total_S + total_gmwd + total_dmd + total_uhi;
+	+ total_S + total_gmwd + total_dmd + total_uhi + total_UNB;
+
+//////////Health, Energy, Spirit///////////
+	
+	double total_health = 1000.00;
+	double health = (total_slpe + total_NFN + total_spt + total_S\
+	+ total_uhi) / total_health * 100;
+	diary<<endl;
+	diary<<"**Health** : "<<health<<"%"<<endl;
+
+	double total_energy = 3000; 
+	double energy = ( (health * total_health / 100) + total_ot + \
+	total_wd + total_cnp + total_enp + total_gmwd + total_rv\
+	+ total_UNB ) / total_energy * 100;
+
+	diary<<"**Energy** : "<<energy<<"%"<<endl;
+
+	double total_spirit = 5000;
+	double spirit =((energy * total_energy  / 100 ) + total_OTG + \
+	total_PP + total_smd + total_dmd ) / total_spirit * 100 ;
+
+	diary<<"**Spirit** : "<<spirit<<"%"<<endl;
+
+////////////////End//////////////////
 
 	diary<<endl;
 	diary<<"###Summary:"<<endl;
 	diary<<"*"<<" total "<<total_sc<<" word "<<total_wd<<" outhome "\
 	<<total_ot<<" cn_paper "<<total_cnp<<" en_paper "<<total_enp\
-	<<" sleep_early "<<total_slpe<<" sport "<<total_spt<<" OTG "\
+	<<" sleep "<<total_slpe<<" sport "<<total_spt<<" OTG "\
 	<<total_OTG<<" PP "<<total_PP<<" NFN "<<total_NFN<<" smd "<<\
 	total_smd<<" review "<<total_rv<<" S "<<total_S<<\
 	" game_weekday "<<total_gmwd<<" dark_mind "<<total_dmd<<\
-	" unhealthy_info "<<total_uhi<<endl;
+	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
+	total_MM<<endl;
 
 	diary.close();
 }
