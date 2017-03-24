@@ -42,5 +42,7 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 
+
+
 *by Kevin* 
 *in UCAS*
