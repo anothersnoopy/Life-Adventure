@@ -24,6 +24,7 @@ Enjoy your life as an adventure game
 
 3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comandline:
 //利用编译器编译、执行。例如：如果你在linux上使用g++编译器，输入以下命令：
+
 `g++ main.cpp -o run`
 
 `./run`
