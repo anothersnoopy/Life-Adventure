@@ -21,7 +21,7 @@ Enjoy your life as an adventure game
 + analyze your Health, Energy and Spirit level by multi-factors
 
 **I  (may) will add these features in the future**: 
-+ set a dream (for instance: By a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
++ set a dream (for instance: Buy a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
 + add new features: write notes in the diary.
 + randomly put some good sentences into your diary(be self-motivated) .
 
@@ -33,7 +33,7 @@ Enjoy your life as an adventure game
 
 2. Edit the PATH(where you want your diary stay) in the function.cpp 
 
-3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comandline:
+3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comand lines:
 
 >`g++ main.cpp -o run`
 
