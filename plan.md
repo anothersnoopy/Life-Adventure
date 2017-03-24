@@ -1,4 +1,4 @@
-~### Plan :
+~~### Plan :~~
 ~~outhome、sleep添加负面扣分~~
 
 ~~可以添加一个初始化summary，判断打开的文件是否有Summary，如果没有，写下初始化summary，各分数均为零；~~
