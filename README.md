@@ -51,5 +51,8 @@ Enjoy your life as an adventure game
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
 + Add new feature: read < The Four > .
 
-*Kevin* 
+*By Kevin* 
+
 *On Wild-Goose Perching Lake*
+
+*2017 Spring*
