@@ -10,7 +10,16 @@ int main()
 	Write write;
 	Data data;
 
-	
+
+	ifstream infile(PATH);
+	if(!infile)
+	{
+		cout<<"Can not open the diary."<<endl;
+		return -1 ;
+	}
+	infile.close();
+
+
 	data.read();//read yesterday's summary
 	write.date();//write today's date
 	write.table_head();
@@ -26,6 +35,7 @@ int main()
 	good.NFN();
 	good.sunny_mind();
 	good.review();
+	good.TheFour();
 	
 	bad.S();
 	bad.game_weekday();
@@ -33,6 +43,7 @@ int main()
 	bad.unhealthy_info();
 	bad.UNB();
 	bad.MM();
+	bad.CM();
 
 	write.summary();
 

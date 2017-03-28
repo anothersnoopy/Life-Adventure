@@ -3,14 +3,14 @@
 #include<sstream>
 using namespace std;
 
-#define PATH "YOUR-PATH"
+#define PATH "/mnt/f/OneDrive/diary.md"
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
 total_slpe, total_spt, total_OTG, total_PP, total_NFN, \
-total_smd, total_rv;//total socres (Good)
+total_smd, total_rv, total_day, total_TheFour;//total socres (Good)
 
 static int total_S, total_gmwd, total_dmd, total_uhi, total_UNB, \
-total_MM;//total scores(Bad)
+total_MM, total_CM;//total scores(Bad)
 
 
 
@@ -33,6 +33,8 @@ Good::Good()//class Good constructor
 	NFN_score = 0;
 	sunny_mind_score = 0;
 	review_score = 0;
+	total_day = 0;
+	TheFour_score = 0;
 
 }
 
@@ -269,6 +271,27 @@ void Good::review()
 
 
 
+void Good::TheFour()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+		
+	char finish;
+	int i = 0;
+	cout<<"Read <The Four> today?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		cout<<" How many times ?"<<endl;
+		cin>>i;
+		TheFour_score += (50 * i);
+	}
+	total_TheFour += TheFour_score;
+	diary<<"| The Four | "<<TheFour_score<<" |"<<endl;
+	diary.close();
+}
+
 
 
 ////////////////////////Bad Functions/////////////////////////////
@@ -282,6 +305,7 @@ Bad::Bad()// class Bad constructor
 	unhealthy_info_score = 0;
 	UNB_score = 0;
 	MM_score = 0;
+	CM_score = 0;
 }
 	
 
@@ -297,11 +321,13 @@ void Bad::S()
 	if(finish == 'y')
 	{
 		cout<<"		How many times?"<<endl;
-		int i;
+		int i= 1;
 		cin>>i;
-		S_score = -200*i;
+		S_score = (-200*i);
+		total_day = -1;
 	}
 	else S_score = 5;
+	total_day += 1;
 
 	total_S += S_score;
 
@@ -422,7 +448,27 @@ void Bad::MM()
 	diary.close();
 }
 
+void Bad::CM()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
 
+	char finish;
+	cout<<"### Did you play mobile in classroom today ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		CM_score = -30;
+	}
+	
+	else CM_score = 5;
+
+	total_CM += CM_score;
+	
+	diary<<"| Play mobile in classroom | "<<CM_score<<" |"<<endl;
+	diary.close();
+}
 
 ////////////////////////////Others//////////////////////////////
 void Write::table_head()
@@ -466,13 +512,15 @@ void Data::read()// to read yesterday's data
 
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_smd[15],m_rv[15]\
-	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15];
+	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
+	,m_day[15],m_TheFour[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
 	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP>>m_NFN>>total_NFN\
 	>>m_smd>>total_smd>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
-	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM;
+	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
+	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour;
 	
 	infile.close();
 }
@@ -488,7 +536,10 @@ void Write::summary()
 ///////If add new items, you need edit this line below////////////
 	total_sc = total_wd + total_ot + total_cnp + total_enp + total_slpe\
 	+ total_spt + total_OTG + total_PP + total_NFN + total_smd + total_rv\
-	+ total_S + total_gmwd + total_dmd + total_uhi + total_UNB;
+	+ total_S + total_gmwd + total_dmd + total_uhi + total_UNB + total_MM\
+	+ total_CM + total_TheFour;
+
+
 
 //////////Health, Energy, Spirit///////////
 	
@@ -501,17 +552,31 @@ void Write::summary()
 	double total_energy = 3000; 
 	double energy = ( (health * total_health / 100) + total_ot + \
 	total_wd + total_cnp + total_enp + total_gmwd + total_rv\
-	+ total_UNB ) / total_energy * 100;
+	+ total_UNB + total_MM + total_CM ) / total_energy * 100;
 
 	diary<<"**Energy** : "<<energy<<"%"<<endl;
 
 	double total_spirit = 5000;
 	double spirit =((energy * total_energy  / 100 ) + total_OTG + \
-	total_PP + total_smd + total_dmd ) / total_spirit * 100 ;
+	total_PP + total_smd + total_dmd + total_TheFour) / total_spirit * 100 ;
 
 	diary<<"**Spirit** : "<<spirit<<"%"<<endl;
 
-////////////////End//////////////////
+////////////////End H,E,S//////////////////
+
+
+
+/////////////////Day///////////////////////
+
+	diary<<endl;
+	diary<<" *Day* : "<<total_day<<endl;
+	diary<<endl;
+
+///////////////End Day/////////////////////
+
+
+
+////////////////Write Summary//////////////
 
 	diary<<endl;
 	diary<<"###Summary:"<<endl;
@@ -522,7 +587,12 @@ void Write::summary()
 	total_smd<<" review "<<total_rv<<" S "<<total_S<<\
 	" game_weekday "<<total_gmwd<<" dark_mind "<<total_dmd<<\
 	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
-	total_MM<<endl;
+	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
+	<<total_TheFour<<endl;
+
+///////////////End Write Summary///////////
+
+
 
 	diary.close();
 }

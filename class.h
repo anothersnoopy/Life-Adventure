@@ -13,6 +13,7 @@ class Good
 	void NFN();// No Food at Night
 	void sunny_mind();// keep a fresh, healthy, and sunny mind for whole day
 	void review();// review what you learn this day
+	void TheFour();//Read <The Four>
 
 	private:
 	int word_score;
@@ -22,6 +23,7 @@ class Good
 	int sleep_score;
 	int sport_score;
 	int OTG_score, PP_score, NFN_score, sunny_mind_score, review_score;
+	int TheFour_score;
 };
 
 class Bad
@@ -34,10 +36,12 @@ class Bad
 	void unhealthy_info();//
 	void UNB();//useless_net_browse
 	void MM();//Morning mobile: play mobile when get up.
+	void CM();//Class mobile: play mobile on Class.
 	
 	private:
 	int S_score,  gamewkd_score, dark_mind_score,\
-	unhealthy_info_score, UNB_score, MM_score;
+	unhealthy_info_score, UNB_score, MM_score,\
+	CM_score;
 };
 
 class Write
