@@ -31,7 +31,7 @@ Enjoy your life as an adventure game
 ## How to use it:
 1. This project is devloped with C++, so you need a C++ compiler.
 
-2. Edit the PATH(where you want your diary stay) in the function.cpp. I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically hync.
+2. Edit the PATH(where you want your diary stay) in the function.cpp. I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically sync.
 
 3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comand lines:
 
