@@ -9,7 +9,7 @@ Enjoy your life as an adventure game
 
 ## 休对故人思故国，且将新火试新茶
 
-+ look at score-plan-v1.3.md to get the latest scores plan.
++ look at score-plan-v1.4.md to get the latest scores plan.
 
 -----
 
@@ -47,9 +47,9 @@ Enjoy your life as an adventure game
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
 + Add new feature: record the day you leave darkness
 
-#### 静以修身，俭以养德
+#### 静以修身，俭以养德。淡泊明志，宁静致远。
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
 + Add new feature: read < The Four > .
 
-*by Kevin* 
-*in UCAS*
+*Kevin* 
+*On Wild-Goose Perching Lake*
