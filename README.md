@@ -31,7 +31,7 @@ Enjoy your life as an adventure game
 ## How to use it:
 1. This project is devloped with C++, so you need a C++ compiler.
 
-2. Edit the PATH(where you want your diary stay) in the function.cpp 
+2. Edit the PATH(where you want your diary stay) in the function.cpp. Personally recommend set PATH to your OneDrive directory so that your diary can automatically hync.
 
 3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comand lines:
 
@@ -41,6 +41,11 @@ Enjoy your life as an adventure game
 
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
+------
+# Update log
+## 自胡马窥江去后，废池乔木，犹厌言兵
+![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
++ Add new feature: record the day you leave darkness
 
 
 
