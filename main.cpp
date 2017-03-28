@@ -36,6 +36,7 @@ int main()
 	good.sunny_mind();
 	good.review();
 	good.TheFour();
+	good.Nsleep();
 	
 	bad.S();
 	bad.game_weekday();
@@ -49,7 +50,8 @@ int main()
 
 	
 	cout<<endl;
-	cout<<"ok,finished."<<endl;
+	cout<<" ok,finished."<<endl;
+	cout<<endl;
 
 	return 0;
 }

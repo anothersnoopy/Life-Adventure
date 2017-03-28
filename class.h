@@ -14,6 +14,7 @@ class Good
 	void sunny_mind();// keep a fresh, healthy, and sunny mind for whole day
 	void review();// review what you learn this day
 	void TheFour();//Read <The Four>
+	void Nsleep();// Noon sleep for 20-30min between 12:30-13:50
 
 	private:
 	int word_score;
@@ -24,6 +25,7 @@ class Good
 	int sport_score;
 	int OTG_score, PP_score, NFN_score, sunny_mind_score, review_score;
 	int TheFour_score;
+	int Nsleep_score;
 };
 
 class Bad

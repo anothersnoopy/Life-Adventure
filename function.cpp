@@ -7,7 +7,8 @@ using namespace std;
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
 total_slpe, total_spt, total_OTG, total_PP, total_NFN, \
-total_smd, total_rv, total_day, total_TheFour;//total socres (Good)
+total_smd, total_rv, total_day, total_TheFour, total_Nsleep,\
+reward;//total socres (Good)
 
 static int total_S, total_gmwd, total_dmd, total_uhi, total_UNB, \
 total_MM, total_CM;//total scores(Bad)
@@ -35,6 +36,7 @@ Good::Good()//class Good constructor
 	review_score = 0;
 	total_day = 0;
 	TheFour_score = 0;
+	Nsleep_score = 0;
 
 }
 
@@ -293,6 +295,34 @@ void Good::TheFour()
 }
 
 
+void Good::Nsleep()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	char temp;
+	cout<<"Noon sleep today?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{	
+		cout<<"No more than 30min?"<<endl;
+		cout<<"(y/n)";
+		cin>>temp;
+		if(temp == 'y')
+		{
+			Nsleep_score = 20;
+		}
+		else
+			Nsleep_score = -20;
+	}
+
+	total_Nsleep += Nsleep_score;
+
+	diary<<"| Nsleep score | "<<Nsleep_score<<" |"<<endl;
+	diary.close();
+}
 
 ////////////////////////Bad Functions/////////////////////////////
 
@@ -513,14 +543,15 @@ void Data::read()// to read yesterday's data
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_smd[15],m_rv[15]\
 	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
-	,m_day[15],m_TheFour[15];
+	,m_day[15],m_TheFour[15],m_Nsleep[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
 	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP>>m_NFN>>total_NFN\
 	>>m_smd>>total_smd>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
 	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
-	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour;
+	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
+	>>total_Nsleep;
 	
 	infile.close();
 }
@@ -533,11 +564,95 @@ void Write::summary()
 	ofstream diary;
 	diary.open(PATH,ios::app);
 
+
+/////////////////Day///////////////////////
+	
+	diary<<endl;
+	diary<<" *Day* : "<<total_day<<endl;
+///////////////End Day/////////////////////
+
+
+
+///////////////Victory Day reward system//////////
+	if(total_day <= 6)
+	{
+		reward = (total_day * 2);
+	}
+	else if(total_day <= 14)
+	{
+		reward = 15;
+	}
+	else if(total_day <= 30)
+	{
+		reward = 20;
+	}
+	else if(total_day <= 60)
+	{
+		reward = 30;
+	}
+	else if(total_day <= 90)
+	{
+		reward = 40;
+	}
+	else if(total_day <= 120)
+	{
+		reward = 50;
+	}
+	else
+		reward = 60;
+	
+	
+	cout<<endl;/////for good display on bash shell
+
+	if((total_day % 7) == 0)
+	{
+		reward = reward + 30;
+		diary<<"Yes! Week reward: 30 "<<endl;
+		cout<<" Yes! Week reward: 30 "<<endl;
+	}
+	
+	if((total_day % 30) == 0 )
+	{
+		reward = reward + 100;
+		diary<<"Good! Month reward: 100 "<<endl;
+		cout<<" Good! Month reward: 100 "<<endl;
+	}
+	
+	if((total_day % 100) == 0 )
+	{
+		reward = reward + 300;
+		diary<<"Excellent! Hundred-Day reward: 300 "<<endl;
+		cout<<" Excellent! Hundred-Day reward: 300 "<<endl;
+	}
+	
+	if((total_day % 183) == 0 )
+	{
+		reward = reward + 500;
+		diary<<"Splendid! Half-Year reward: 500 "<<endl;
+		cout<<"Splendid! Half-Year reward: 500 "<<endl;
+	}
+	
+	if((total_day % 365) == 0 )
+	{
+		reward = reward + 1000;
+		diary<<"Unbelievable ! Year reward: 1000 "<<endl;
+		cout<<"Unbelievable ! Year reward: 1000 "<<endl;
+	}
+	diary<<" victory-day reward: "<<reward<<endl;
+
+
+/////////////////VD Reward system End/////////////
+
+
+
+
+////////////////////////total score//////////////////////////
+
 ///////If add new items, you need edit this line below////////////
 	total_sc = total_wd + total_ot + total_cnp + total_enp + total_slpe\
 	+ total_spt + total_OTG + total_PP + total_NFN + total_smd + total_rv\
 	+ total_S + total_gmwd + total_dmd + total_uhi + total_UNB + total_MM\
-	+ total_CM + total_TheFour;
+	+ total_CM + total_TheFour + total_Nsleep + reward;
 
 
 
@@ -545,7 +660,7 @@ void Write::summary()
 	
 	double total_health = 1000.00;
 	double health = (total_slpe + total_NFN + total_spt + total_S\
-	+ total_uhi) / total_health * 100;
+	+ total_uhi + total_Nsleep + reward) / total_health * 100;
 	diary<<endl;
 	diary<<"**Health** : "<<health<<"%"<<endl;
 
@@ -566,16 +681,6 @@ void Write::summary()
 
 
 
-/////////////////Day///////////////////////
-
-	diary<<endl;
-	diary<<" *Day* : "<<total_day<<endl;
-	diary<<endl;
-
-///////////////End Day/////////////////////
-
-
-
 ////////////////Write Summary//////////////
 
 	diary<<endl;
@@ -588,7 +693,7 @@ void Write::summary()
 	" game_weekday "<<total_gmwd<<" dark_mind "<<total_dmd<<\
 	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
 	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
-	<<total_TheFour<<endl;
+	<<total_TheFour<<" Nsleep "<<total_Nsleep<<endl;
 
 ///////////////End Write Summary///////////
 
