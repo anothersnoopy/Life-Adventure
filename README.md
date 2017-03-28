@@ -9,7 +9,7 @@ Enjoy your life as an adventure game
 
 ## 休对故人思故国，且将新火试新茶
 
-+ look at new_score_plan.md to get the latest scores plan.
++ look at score-plan-v1.3.md to get the latest scores plan.
 
 -----
 
@@ -42,12 +42,12 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ------
-# v1.3 Update log
-### 自胡马窥江去后，废池乔木，犹厌言兵
+## v1.3 Update log
+#### 自胡马窥江去后，废池乔木，犹厌言兵
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
 + Add new feature: record the day you leave darkness
 
-### 静以修身，俭以养德
+#### 静以修身，俭以养德
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
 + Add new feature: read < The Four > .
 
