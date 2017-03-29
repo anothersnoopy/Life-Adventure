@@ -42,16 +42,24 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ------
-## v1.4 Update log
+## v1.5 Update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
 + Add new feature: record the day you leave darkness(v1.3)
 + Add new feature: V-Day Award System now online(v1.4)
-+ Add new item: Lunch break(Noon sleep). 
++ Add a new item: Lunch break(Noon sleep)（v1.4). 
 
 #### 静以修身，俭以养德。淡泊明志，宁静致远。
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
-+ Add new feature: read < The Four > .
++ Add a new item: read < The Four > (v1.4).
+
+#### I'm too tired and old to learn to love, leave me alone forever.  -- The End of the Affair
+#### 我累了，也老了，不想再学如何去爱，就让我一个人孤独终老吧。 ——《爱到尽头》
+#### Surprise! But we are still young~
+
+![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
++ Addnew fearture: Now you can choose write note in your diary(v1.5)
++ Add a new item.
 
 *By Kevin* 
 
