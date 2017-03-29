@@ -22,4 +22,4 @@
 | useless net browsing                 | -20 / +5           |
 | play mobile in the morning           | -30 / +5           |
 | play mobile in classroom             | -30 / +5           |
-
+| watch game video on weekday | -20 / +5 |
