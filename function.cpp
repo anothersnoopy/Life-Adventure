@@ -11,7 +11,7 @@ total_smd, total_rv, total_day, total_TheFour, total_Nsleep,\
 reward;//total socres (Good)
 
 static int total_S, total_gmwd, total_dmd, total_uhi, total_UNB, \
-total_MM, total_CM;//total scores(Bad)
+total_MM, total_CM, total_GV;//total scores(Bad)
 
 
 
@@ -336,6 +336,7 @@ Bad::Bad()// class Bad constructor
 	UNB_score = 0;
 	MM_score = 0;
 	CM_score = 0;
+	GV_score = 0;
 }
 	
 
@@ -462,7 +463,7 @@ void Bad::MM()
 	diary.open(PATH,ios::app);
 
 	char finish;
-	cout<<"### Today when you get up, did you play mobile ?"<<endl;
+	cout<<"###Today when you get up, did you play mobile ?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
@@ -500,11 +501,36 @@ void Bad::CM()
 	diary.close();
 }
 
+
+
+void Bad::GV()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"### Watch Game Video in weekdays ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		GV_score = -20;
+	}
+	
+	else GV_score = 5;
+	
+	total_GV += GV_score;
+	
+	diary<<"| Game Video weekday | "<<GV_score<<" |"<<endl;
+	diary.close();
+}
+
 ////////////////////////////Others//////////////////////////////
 void Write::table_head()
 {
 	ofstream diary;
 	diary.open(PATH,ios::app);
+	diary<<"###Today score:"<<endl;
 	diary<<"| item | score |"<<endl;
 	diary<<"| --- | --- |"<<endl;
 	diary.close();
@@ -526,6 +552,32 @@ void Write::date()
 }
 
 
+void Write::note()
+{
+	char temp;
+	cout<<"Do you want write note ?"<<endl;
+	cout<<"(y/n)";
+	cin>>temp;
+	if(temp == 'y')
+	{
+		cin.get();///eat the 'Enter', to avoid jump over getline(cin, note)
+		ofstream diary;
+		diary.open(PATH,ios::app);
+
+		string note;
+		cout<<"Write here:"<<endl;
+		getline(cin, note);
+		diary<<endl;
+		diary<<"###Today Note:"<<endl;
+		diary<<note<<endl;
+		diary<<endl;
+
+		diary.close();
+	}
+}
+
+
+
 
 void Data::read()// to read yesterday's data
 {
@@ -543,7 +595,7 @@ void Data::read()// to read yesterday's data
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_smd[15],m_rv[15]\
 	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
-	,m_day[15],m_TheFour[15],m_Nsleep[15];
+	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
@@ -551,7 +603,7 @@ void Data::read()// to read yesterday's data
 	>>m_smd>>total_smd>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
 	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
 	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
-	>>total_Nsleep;
+	>>total_Nsleep>>m_GV>>total_GV;
 	
 	infile.close();
 }
@@ -567,7 +619,7 @@ void Write::summary()
 
 /////////////////Day///////////////////////
 	
-	diary<<endl;
+	diary<<"###Data Analysis:"<<endl;
 	diary<<" *Day* : "<<total_day<<endl;
 ///////////////End Day/////////////////////
 
@@ -603,6 +655,8 @@ void Write::summary()
 	
 	
 	cout<<endl;/////for good display on bash shell
+	if( total_day != 0)
+	{////avoid total_day = 0 trouble///////////
 
 	if((total_day % 7) == 0)
 	{
@@ -638,6 +692,7 @@ void Write::summary()
 		diary<<"Unbelievable ! Year reward: 1000 "<<endl;
 		cout<<"Unbelievable ! Year reward: 1000 "<<endl;
 	}
+	}///////////avoid end////////////
 	diary<<" victory-day reward: "<<reward<<endl;
 
 
@@ -684,7 +739,7 @@ void Write::summary()
 ////////////////Write Summary//////////////
 
 	diary<<endl;
-	diary<<"###Summary:"<<endl;
+	diary<<"####Summary:"<<endl;
 	diary<<"*"<<" total "<<total_sc<<" word "<<total_wd<<" outhome "\
 	<<total_ot<<" cn_paper "<<total_cnp<<" en_paper "<<total_enp\
 	<<" sleep "<<total_slpe<<" sport "<<total_spt<<" OTG "\
@@ -693,7 +748,8 @@ void Write::summary()
 	" game_weekday "<<total_gmwd<<" dark_mind "<<total_dmd<<\
 	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
 	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
-	<<total_TheFour<<" Nsleep "<<total_Nsleep<<endl;
+	<<total_TheFour<<" Nsleep "<<total_Nsleep<<" GameVideo "<<\
+	total_GV<<endl;
 
 ///////////////End Write Summary///////////
 

@@ -45,7 +45,9 @@ int main()
 	bad.UNB();
 	bad.MM();
 	bad.CM();
-
+	bad.GV();
+	
+	write.note();
 	write.summary();
 
 	

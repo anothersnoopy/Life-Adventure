@@ -39,11 +39,12 @@ class Bad
 	void UNB();//useless_net_browse
 	void MM();//Morning mobile: play mobile when get up.
 	void CM();//Class mobile: play mobile on Class.
+	void GV();//Game Video: watch game video during weekday
 	
 	private:
 	int S_score,  gamewkd_score, dark_mind_score,\
 	unhealthy_info_score, UNB_score, MM_score,\
-	CM_score;
+	CM_score, GV_score;
 };
 
 class Write
@@ -52,6 +53,7 @@ class Write
 	void date();
 	void summary();
 	void table_head();
+	void note();
 };
 
 class Data
