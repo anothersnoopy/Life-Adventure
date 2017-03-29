@@ -1,9 +1,10 @@
-#Diary Sample
+# Diary Sample
 
 -------------------------------
-##Wed Mar 29 09:38:25 2017
+## Wed Mar 29 09:38:25 2017
 
-###Today score:
+### Today score:
+
 | item                     | score |
 | ------------------------ | ----- |
 | words score              | 10    |
@@ -28,10 +29,10 @@
 | Play mobile in classroom | 5     |
 | Game Video weekday       | 5     |
 
-###Today Note:
+### Today Note:
 ahahhfjdioafjeiw
 
-###Data Analysis:
+### Data Analysis:
  *Day* : 1
  victory-day reward: 2
 
@@ -39,5 +40,5 @@ ahahhfjdioafjeiw
 **Energy** : 16.0667%
 **Spirit** : 13.04%
 
-####Summary:
+#### Summary:
 * total 652 word 10 outhome 20 cn_paper 100 en_paper 200 sleep 25 sport 25 OTG 20 PP 25 NFN 20 smd 20 review 30 S 5 game_weekday 5 dark_mind 5 unhealthy_info 5 UNB 5 MM 5 CM 5 day 1 TheFour 100 Nsleep 20 GameVideo 5
