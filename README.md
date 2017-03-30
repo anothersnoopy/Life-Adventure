@@ -38,7 +38,6 @@ Enjoy your life as an adventure game
 >`g++ main.cpp -o run`
 
 >`./run`
-
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ----
@@ -82,7 +81,7 @@ Enjoy your life as an adventure game
 
 **v1.6 is a stable version and it will not be updated for a period of time.**
 
-**Come on, enjoy your life as an adventure!**
+**My friend, please enjoy your life as an adventure.**
 
 
 ----------
