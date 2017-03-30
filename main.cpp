@@ -24,28 +24,28 @@ int main()
 	write.date();//write today's date
 	write.table_head();
 	
-	good.word();
+	good.sleep();
 	good.outhome();
+	good.sport();
+	good.word();
+	good.Nsleep();
+	good.NFN();
 	good.cn_paper();
 	good.en_paper();
-	good.sleep();
-	good.sport();
-	good.OTG();
-	good.PP();
-	good.NFN();
-	good.sunny_mind();
 	good.review();
+	good.PP();
+	good.OTG();
+	good.PureThinking();
 	good.TheFour();
-	good.Nsleep();
-	
+
+
 	bad.S();
-	bad.game_weekday();
-	bad.dark_mind();
-	bad.unhealthy_info();
-	bad.UNB();
 	bad.MM();
 	bad.CM();
+	bad.game_weekday();
 	bad.GV();
+	bad.unhealthy_info();
+	bad.UNB();
 	
 	write.note();
 	write.summary();

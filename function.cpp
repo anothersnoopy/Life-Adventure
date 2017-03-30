@@ -7,10 +7,10 @@ using namespace std;
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
 total_slpe, total_spt, total_OTG, total_PP, total_NFN, \
-total_smd, total_rv, total_day, total_TheFour, total_Nsleep,\
-reward;//total socres (Good)
+total_rv, total_day, total_TheFour, total_Nsleep,\
+reward, total_PT;//total socres (Good)
 
-static int total_S, total_gmwd, total_dmd, total_uhi, total_UNB, \
+static int total_S, total_gmwd, total_uhi, total_UNB, \
 total_MM, total_CM, total_GV;//total scores(Bad)
 
 
@@ -32,11 +32,11 @@ Good::Good()//class Good constructor
 	OTG_score = 0;
 	PP_score = 0;
 	NFN_score = 0;
-	sunny_mind_score = 0;
 	review_score = 0;
 	total_day = 0;
 	TheFour_score = 0;
 	Nsleep_score = 0;
+	PT_score = 0;
 
 }
 
@@ -229,27 +229,6 @@ void Good::NFN()
 	diary.close();
 }
 
-void Good::sunny_mind()
-{
-	ofstream diary;
-	diary.open(PATH,ios::app);
-
-	char finish;
-	cout<<"keep a fresh, healthy mind and no dirty thinking today ?"<<endl;
-	cout<<"(y/n)";
-	cin>>finish;
-	if(finish == 'y')
-	{
-		sunny_mind_score = 20;
-	}
-
-	total_smd += sunny_mind_score;
-
-	diary<<"| Clean Thinking | "<<sunny_mind_score<<" |"<<endl;
-	diary.close();
-}
-
-
 
 void Good::review()
 {
@@ -262,7 +241,7 @@ void Good::review()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		review_score = 30;
+		review_score = 50;
 	}
 
 	total_rv += review_score;
@@ -287,7 +266,7 @@ void Good::TheFour()
 	{
 		cout<<" How many times ?"<<endl;
 		cin>>i;
-		TheFour_score += (50 * i);
+		TheFour_score += (30 * i);
 	}
 	total_TheFour += TheFour_score;
 	diary<<"| The Four | "<<TheFour_score<<" |"<<endl;
@@ -324,6 +303,29 @@ void Good::Nsleep()
 	diary.close();
 }
 
+
+
+void Good::PureThinking()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+		
+	char finish;
+	cout<<"Keep a pure thinking today?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		PT_score = 30;
+	}
+	else PT_score = -20;
+	total_PT += PT_score;
+	diary<<"| PureThinking | "<<PT_score<<" |"<<endl;
+	diary.close();
+}
+
+
+
 ////////////////////////Bad Functions/////////////////////////////
 
 
@@ -331,7 +333,6 @@ Bad::Bad()// class Bad constructor
 {
 	S_score = 0;
 	gamewkd_score = 0;
-	dark_mind_score = 0;
 	unhealthy_info_score = 0;
 	UNB_score = 0;
 	MM_score = 0;
@@ -388,27 +389,6 @@ void Bad::game_weekday()
 	diary.close();
 }
 
-void Bad::dark_mind()
-{
-	ofstream diary;
-	diary.open(PATH,ios::app);
-
-	char finish;
-	cout<<"### Think any dirty things today ?"<<endl;
-	cout<<"(y/n)";
-	cin>>finish;
-	if(finish == 'y')
-	{
-		dark_mind_score = -10;
-	}
-	
-	else dark_mind_score = 5;
-	
-	total_dmd += dark_mind_score;
-	
-	diary<<"| dark mind | "<<dark_mind_score<<" |"<<endl;
-	diary.close();
-}
 
 void Bad::unhealthy_info()
 {
@@ -555,7 +535,7 @@ void Write::date()
 void Write::note()
 {
 	char temp;
-	cout<<"Do you want write note ?"<<endl;
+	cout<<"			Do you want write note ?"<<endl;
 	cout<<"(y/n)";
 	cin>>temp;
 	if(temp == 'y')
@@ -593,17 +573,17 @@ void Data::read()// to read yesterday's data
 	istringstream ss(line);
 
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
-	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_smd[15],m_rv[15]\
-	,m_S[15],m_gwkd[15],m_dmd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
-	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15];
+	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_rv[15]\
+	,m_S[15],m_gwkd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
+	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
 	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP>>m_NFN>>total_NFN\
-	>>m_smd>>total_smd>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
-	>>m_dmd>>total_dmd>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
+	>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
+	>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
 	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
-	>>total_Nsleep>>m_GV>>total_GV;
+	>>total_Nsleep>>m_GV>>total_GV>>m_PT>>total_PT;
 	
 	infile.close();
 }
@@ -705,30 +685,90 @@ void Write::summary()
 
 ///////If add new items, you need edit this line below////////////
 	total_sc = total_wd + total_ot + total_cnp + total_enp + total_slpe\
-	+ total_spt + total_OTG + total_PP + total_NFN + total_smd + total_rv\
-	+ total_S + total_gmwd + total_dmd + total_uhi + total_UNB + total_MM\
-	+ total_CM + total_TheFour + total_Nsleep + reward;
+	+ total_spt + total_OTG + total_PP + total_NFN +  total_rv\
+	+ total_TheFour + total_Nsleep + total_PT + total_S + total_gmwd\
+	+  total_uhi + total_UNB + total_MM + total_CM + reward;
 
 
 
 //////////Health, Energy, Spirit///////////
 	
-	double total_health = 1000.00;
+	double total_health = 3000.00;
 	double health = (total_slpe + total_NFN + total_spt + total_S\
-	+ total_uhi + total_Nsleep + reward) / total_health * 100;
+	+ total_uhi + total_Nsleep + total_PT + reward) / total_health * 100;
 	diary<<endl;
 	diary<<"**Health** : "<<health<<"%"<<endl;
 
-	double total_energy = 3000; 
-	double energy = ( (health * total_health / 100) + total_ot + \
-	total_wd + total_cnp + total_enp + total_gmwd + total_rv\
-	+ total_UNB + total_MM + total_CM ) / total_energy * 100;
+///////////////Energy Reward////////////
+	int E_reward;
+	if(health < 0)
+	{
+		E_reward = -5;
+	}
+	else if(health < 0.2)
+	{
+		E_reward = 5;
+	}
+	else if(health < 0.4)
+	{
+		E_reward = 10;
+	}
+	else if(health < 0.6)
+	{
+		E_reward = 20;
+	}
+	else if(health < 0.8)
+	{
+		E_reward = 30;
+	}
+	else if(health < 1.0)
+	{
+		E_reward = 50;
+	}
+	else E_reward = 100;
+/////////////////Energy Reward END/////////
+
+	double total_energy = 5000; 
+	double energy = ( total_ot + total_wd + total_cnp + \
+	total_enp + total_gmwd + total_rv + total_UNB + total_MM \
+	+ total_CM + total_GV + E_reward ) / total_energy * 100;
 
 	diary<<"**Energy** : "<<energy<<"%"<<endl;
 
+
+///////////////Spirit Reward////////////
+	int S_reward;
+	if(energy < 0)
+	{
+		S_reward = -5;
+	}
+	else if(energy < 0.2)
+	{
+		S_reward = 5;
+	}
+	else if(energy < 0.4)
+	{
+		S_reward = 10;
+	}
+	else if(energy < 0.6)
+	{
+		S_reward = 20;
+	}
+	else if(energy < 0.8)
+	{
+		S_reward = 30;
+	}
+	else if(energy < 1.0)
+	{
+		S_reward = 50;
+	}
+	else S_reward = 100;
+/////////////////Spirit Reward END/////////
+
+
 	double total_spirit = 5000;
-	double spirit =((energy * total_energy  / 100 ) + total_OTG + \
-	total_PP + total_smd + total_dmd + total_TheFour) / total_spirit * 100 ;
+	double spirit =( total_OTG + total_PP + total_TheFour\
+	+ S_reward) / total_spirit * 100 ;
 
 	diary<<"**Spirit** : "<<spirit<<"%"<<endl;
 
@@ -743,13 +783,13 @@ void Write::summary()
 	diary<<"*"<<" total "<<total_sc<<" word "<<total_wd<<" outhome "\
 	<<total_ot<<" cn_paper "<<total_cnp<<" en_paper "<<total_enp\
 	<<" sleep "<<total_slpe<<" sport "<<total_spt<<" OTG "\
-	<<total_OTG<<" PP "<<total_PP<<" NFN "<<total_NFN<<" smd "<<\
-	total_smd<<" review "<<total_rv<<" S "<<total_S<<\
-	" game_weekday "<<total_gmwd<<" dark_mind "<<total_dmd<<\
+	<<total_OTG<<" PP "<<total_PP<<" NFN "<<total_NFN\
+	<<" review "<<total_rv<<" S "<<total_S<<\
+	" game_weekday "<<total_gmwd<<\
 	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
 	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
 	<<total_TheFour<<" Nsleep "<<total_Nsleep<<" GameVideo "<<\
-	total_GV<<endl;
+	total_GV<<" PureThinking "<<total_PT<<endl;
 
 ///////////////End Write Summary///////////
 
