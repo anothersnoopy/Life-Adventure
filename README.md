@@ -47,17 +47,18 @@ Enjoy your life as an adventure game
 + Be patient! Read the codes by yourself, it is very easy.
 
 ------
-## v1.4 update log
+## v1.3 update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
-+ Add new feature: record the day you leave darkness(v1.3)
-+ Add new feature: V-Day Award System now online(v1.4)
-+ Add a new item: Lunch break(Noon sleep)（v1.4). 
+> + Add new feature: record the day you leave darkness(v1.3)
+
 -----
+## v1.4 update log
 #### 静以修身，俭以养德。淡泊明志，宁静致远。
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
-+ Add a new item: read < The Four > (v1.4).
-
+> + Add a new item: read < The Four > (v1.4).
+> + Add new feature: V-Day Award System now online(v1.4)
+> + Add a new item: Lunch break(Noon sleep)（v1.4). 
 
 -----------
 ## v1.5 update log
@@ -66,9 +67,8 @@ Enjoy your life as an adventure game
 #### Surprise! But we are still young~ Write down your daily life with this update!
 
 ![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
-+ Add new fearture: Now you can write note in your diary(v1.5), mark your interesting life down!
-+ Add a new item.
-
+> + Add new fearture: Now you can write note in your diary(v1.5), mark your interesting life down!
+> + Add a new item.
 
 --------------
 ## v1.6 update log
@@ -76,13 +76,12 @@ Enjoy your life as an adventure game
 #### 幸福就是每个微小愿望的达成。
 
 ![Happy](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/5.jpg)
-+ Add new feature: All new H-E-S analysis system(including H-E-S Award system)
-+ Improve: The function order and diary format.
+> + Add new feature: All new H-E-S analysis system(including H-E-S Award system)
+> + Improve: The function order and diary format.
 
 **v1.6 is a stable version and it will not be updated for a period of time.**
 
 **My friend, please enjoy your life as an adventure.**
-
 
 ----------
 *By Kevin* 
