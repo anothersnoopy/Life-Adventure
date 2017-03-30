@@ -9,7 +9,7 @@ Enjoy your life as an adventure game
 
 ## 休对故人思故国，且将新火试新茶
 
-+ look at score-plan-v1.4.md to get the latest scores plan.
++ look at [score-plan.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/score-plan.md) to get the latest scores plan.
 
 -----
 
@@ -41,6 +41,12 @@ Enjoy your life as an adventure game
 
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
+----
+
+## How to personalize this program
++ [manual.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/manual.md) could tell you how to add new functions in this program.
++ Be patient! Read the codes by yourself, it is very easy.
+
 ------
 ## v1.5 Update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
@@ -58,9 +64,24 @@ Enjoy your life as an adventure game
 #### Surprise! But we are still young~
 
 ![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
-+ Addnew fearture: Now you can choose write note in your diary(v1.5)
++ Add new fearture: Now you can choose write note in your diary(v1.5)
 + Add a new item.
 
+
+--------------
+## v1.6 update log
+#### Happiness is about having each tiny wish come true.
+#### 幸福就是每个微小愿望的达成。
+
+![Happy](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/5.jpg)
++ Add new feature: All new H-E-S analysis system(including H-E-S Award system)
++ Improve: The function order and diary format.
+
+**v1.6 is a stable version and it will not be updated for a period of time.**
+**Come on, enjoy your life as an adventure!**
+
+
+----------
 *By Kevin* 
 
 *On Wild-Goose Perching Lake*
