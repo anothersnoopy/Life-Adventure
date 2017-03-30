@@ -15,7 +15,6 @@ Enjoy your life as an adventure game
 
 
 ##  About this program:
-
 **It can(now)** :
 + record your daily life
 + analyze your Health, Energy and Spirit level by multi-factors
@@ -24,6 +23,7 @@ Enjoy your life as an adventure game
 + set a dream (for instance: Buy a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
 + add new features: write notes in the diary.
 + randomly put some good sentences into your diary(be self-motivated) .
+
 
 ----
 
@@ -48,23 +48,26 @@ Enjoy your life as an adventure game
 + Be patient! Read the codes by yourself, it is very easy.
 
 ------
-## v1.5 Update log
+## v1.4 update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
 + Add new feature: record the day you leave darkness(v1.3)
 + Add new feature: V-Day Award System now online(v1.4)
 + Add a new item: Lunch break(Noon sleep)（v1.4). 
-
+-----
 #### 静以修身，俭以养德。淡泊明志，宁静致远。
 ![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
 + Add a new item: read < The Four > (v1.4).
 
+
+-----------
+## v1.5 update log
 #### I'm too tired and old to learn to love, leave me alone forever.  -- The End of the Affair
 #### 我累了，也老了，不想再学如何去爱，就让我一个人孤独终老吧。 ——《爱到尽头》
-#### Surprise! But we are still young~
+#### Surprise! But we are still young~ Write down your daily life with this update!
 
 ![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
-+ Add new fearture: Now you can choose write note in your diary(v1.5)
++ Add new fearture: Now you can write note in your diary(v1.5), mark your interesting life down!
 + Add a new item.
 
 
@@ -78,6 +81,7 @@ Enjoy your life as an adventure game
 + Improve: The function order and diary format.
 
 **v1.6 is a stable version and it will not be updated for a period of time.**
+
 **Come on, enjoy your life as an adventure!**
 
 
