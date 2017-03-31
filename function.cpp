@@ -1,6 +1,7 @@
 #include"class.h"
 #include<ctime>
 #include<sstream>
+#include<iomanip>
 using namespace std;
 
 #define PATH "/mnt/f/OneDrive/diary.md"
@@ -13,7 +14,7 @@ reward, total_PT;//total socres (Good)
 static int total_S, total_gmwd, total_uhi, total_UNB, \
 total_MM, total_CM, total_GV;//total scores(Bad)
 
-
+static double yesterday_H, yesterday_E, yesterday_S;
 
 
 //////////////////////////////////Good Funtions///////////////////////
@@ -134,7 +135,7 @@ void Good::sleep()// improve suggestion: input sleep time
 	}
 	else 
 		{
-			cout<<"Later than 11:00 ? (y/n)"<<endl;
+			cout<<"		Later than 11:00 ? (y/n)"<<endl;
 			char temp;
 			cin>>temp;
 			if(temp == 'y')
@@ -286,7 +287,7 @@ void Good::Nsleep()
 	cin>>finish;
 	if(finish == 'y')
 	{	
-		cout<<"No more than 30min?"<<endl;
+		cout<<"		No more than 30min?"<<endl;
 		cout<<"(y/n)";
 		cin>>temp;
 		if(temp == 'y')
@@ -316,7 +317,7 @@ void Good::PureThinking()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		PT_score = 30;
+		PT_score = 10;
 	}
 	else PT_score = -20;
 	total_PT += PT_score;
@@ -510,7 +511,7 @@ void Write::table_head()
 {
 	ofstream diary;
 	diary.open(PATH,ios::app);
-	diary<<"###Today score:"<<endl;
+	diary<<"### Today score:"<<endl;
 	diary<<"| item | score |"<<endl;
 	diary<<"| --- | --- |"<<endl;
 	diary.close();
@@ -526,7 +527,7 @@ void Write::date()
 	time(&today);
 	diary<<endl;
 	diary<<"-------------------------------"<<endl;
-	diary<<"##"<<ctime(&today)<<endl;
+	diary<<"## "<<ctime(&today)<<endl;
 	
 	diary.close();
 }
@@ -548,7 +549,7 @@ void Write::note()
 		cout<<"Write here:"<<endl;
 		getline(cin, note);
 		diary<<endl;
-		diary<<"###Today Note:"<<endl;
+		diary<<"### Today Note:"<<endl;
 		diary<<note<<endl;
 		diary<<endl;
 
@@ -575,7 +576,8 @@ void Data::read()// to read yesterday's data
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_rv[15]\
 	,m_S[15],m_gwkd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
-	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15];
+	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15],m_Health[15]\
+	,m_Energy[15], m_Spirit[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
@@ -583,7 +585,8 @@ void Data::read()// to read yesterday's data
 	>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
 	>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
 	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
-	>>total_Nsleep>>m_GV>>total_GV>>m_PT>>total_PT;
+	>>total_Nsleep>>m_GV>>total_GV>>m_PT>>total_PT>>m_Health\
+	>>yesterday_H>>m_Energy>>yesterday_E>>m_Spirit>>yesterday_S;
 	
 	infile.close();
 }
@@ -598,8 +601,8 @@ void Write::summary()
 
 
 /////////////////Day///////////////////////
-	
-	diary<<"###Data Analysis:"<<endl;
+	diary<<endl;
+	diary<<"### Data Analysis:"<<endl;
 	diary<<" *Day* : "<<total_day<<endl;
 ///////////////End Day/////////////////////
 
@@ -697,7 +700,11 @@ void Write::summary()
 	double health = (total_slpe + total_NFN + total_spt + total_S\
 	+ total_uhi + total_Nsleep + total_PT + reward) / total_health * 100;
 	diary<<endl;
-	diary<<"**Health** : "<<health<<"%"<<endl;
+	
+	double H_growth = health - yesterday_H;
+
+	diary<<"**Health** : "<<fixed<<setprecision(2)<<health\
+	<<"%"<<"	("<<showpos<<H_growth<<"%)"<<endl;
 
 ///////////////Energy Reward////////////
 	int E_reward;
@@ -733,7 +740,10 @@ void Write::summary()
 	total_enp + total_gmwd + total_rv + total_UNB + total_MM \
 	+ total_CM + total_GV + E_reward ) / total_energy * 100;
 
-	diary<<"**Energy** : "<<energy<<"%"<<endl;
+	double E_growth = energy - yesterday_E;
+	
+	diary<<"**Energy** : "<<fixed<<setprecision(2)<<noshowpos\
+	<<energy<<"%"<<"	("<<showpos<<E_growth<<"%)"<<endl;
 
 
 ///////////////Spirit Reward////////////
@@ -770,7 +780,10 @@ void Write::summary()
 	double spirit =( total_OTG + total_PP + total_TheFour\
 	+ S_reward) / total_spirit * 100 ;
 
-	diary<<"**Spirit** : "<<spirit<<"%"<<endl;
+	double S_growth = spirit - yesterday_S;
+	
+	diary<<"**Spirit** : "<<fixed<<setprecision(2)<<noshowpos\
+	<<spirit<<"%"<<"	("<<showpos<<S_growth<<"%)"<<endl;
 
 ////////////////End H,E,S//////////////////
 
@@ -779,7 +792,7 @@ void Write::summary()
 ////////////////Write Summary//////////////
 
 	diary<<endl;
-	diary<<"####Summary:"<<endl;
+	diary<<"#### Summary:"<<endl;
 	diary<<"*"<<" total "<<total_sc<<" word "<<total_wd<<" outhome "\
 	<<total_ot<<" cn_paper "<<total_cnp<<" en_paper "<<total_enp\
 	<<" sleep "<<total_slpe<<" sport "<<total_spt<<" OTG "\
@@ -789,7 +802,8 @@ void Write::summary()
 	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
 	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
 	<<total_TheFour<<" Nsleep "<<total_Nsleep<<" GameVideo "<<\
-	total_GV<<" PureThinking "<<total_PT<<endl;
+	total_GV<<" PureThinking "<<total_PT<<" Health "<<health<<\
+	" Energy "<<energy<<" Spirit "<<spirit<<endl;
 
 ///////////////End Write Summary///////////
 
