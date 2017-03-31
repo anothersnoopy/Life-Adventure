@@ -42,6 +42,7 @@ Enjoy your life as an adventure game
 
 ----
 e
+
 ## How to personalize this program
 + [manual.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/manual.md) could tell you how to add new functions in this program.
 + Be patient! Read the codes by yourself, it is very easy.
@@ -80,6 +81,7 @@ e
 > + Improve: The function order and diary format.
 
 **v1.6 is a stable version and it will not be updated for a period of time.**
+
 (*I update the function.h to v1.7. You can try it for better experience.*) 
 
 
