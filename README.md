@@ -66,7 +66,7 @@ e
 ## v1.5 update log
 #### I'm too tired and old to learn to love, leave me alone forever.  -- The End of the Affair
 #### 我累了，也老了，不想再学如何去爱，就让我一个人孤独终老吧。 ——《爱到尽头》
-#### Surprise! But we are still young~ Write down your daily life with this update!
+#### However, we are still young. Write down your daily life with this update!
 
 ![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
 > + Add new fearture: Now you can write note in your diary(v1.5), mark your interesting life down!
@@ -90,18 +90,15 @@ e
 ## Secret Garden
 ![SecretGarden](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/6.jpg)
 
->+ This is a secret garden;
->+ This is a peaceful garden;
->+ This is a beautiful garden.
->+ It will always be here,
->+ Waiting for you.
->+ If you come into the garden,
->+ Please keep the garden secret and peaceful.
+> This is a secret garden.
+> This is a peaceful garden.
+> This is a beautiful garden.
+> It will always be here.
+> Waiting for you.
+> If you come into the garden.
+> Please keep the garden secret and peaceful.
 
-
-
-
-
+-----
 **My friend, please enjoy your life as an adventure.**
 
 ----------
