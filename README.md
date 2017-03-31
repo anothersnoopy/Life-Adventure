@@ -13,7 +13,6 @@ Enjoy your life as an adventure game
 
 -----
 
-
 ##  About this program:
 **It can(now)** :
 + record your daily life
@@ -21,6 +20,7 @@ Enjoy your life as an adventure game
 
 **I  (may) will add these features in the future**: 
 + set a dream (for instance: Buy a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
+
 + add new features: write notes in the diary.
 + randomly put some good sentences into your diary(be self-motivated) .
 
@@ -41,7 +41,7 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ----
-
+e
 ## How to personalize this program
 + [manual.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/manual.md) could tell you how to add new functions in this program.
 + Be patient! Read the codes by yourself, it is very easy.
@@ -80,6 +80,8 @@ Enjoy your life as an adventure game
 > + Improve: The function order and diary format.
 
 **v1.6 is a stable version and it will not be updated for a period of time.**
+(*I update the function.h to v1.7. You can try it for better experience.*) 
+
 
 **My friend, please enjoy your life as an adventure.**
 
