@@ -92,13 +92,6 @@ e
 
 > This is a secret garden.
 
-> This is a peaceful garden.
-
-> This is a beautiful garden.
-
-> It will always be here.
-
-> Waiting for you.
 
 -----
 **My friend, please enjoy your life as an adventure.**
