@@ -21,7 +21,6 @@ Enjoy your life as an adventure game
 **I  (may) will add these features in the future**: 
 + set a dream (for instance: Buy a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
 
-+ add new features: write notes in the diary.
 + randomly put some good sentences into your diary(be self-motivated) .
 
 
@@ -106,6 +105,6 @@ Enjoy your life as an adventure game
 ----------
 *By Kevin* 
 
-*On Wild-Goose Perching Lake*
+*On Wild-Goose Perching Lake, Beijing*
 
 *2017 Spring*
