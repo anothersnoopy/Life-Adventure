@@ -42,7 +42,7 @@ Enjoy your life as an adventure game
 4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ----
-e
+
 
 ## How to personalize this program
 + [manual.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/manual.md) could tell you how to add new functions in this program.
@@ -81,9 +81,16 @@ e
 > + Add new feature: All new H-E-S analysis system(including H-E-S Award system)
 > + Improve: The function order and diary format.
 
-**v1.6 is a stable version and it will not be updated for a period of time.**
-
 (*I update the function.h to v1.7. You can try it for better experience.*) 
+
+----------------
+
+## v2.0 update log
+#### 料峭春风吹酒醒，微冷，山头斜照却相迎。
+![sunnymount](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/7.jpg)
+> + New UI: You can choose 4 different functions when you run the program.
+> + New feature: Now you can make a plan in the morning and check your plan list in the evening.
+> + Other small improvement.
 
 
 ----------------
