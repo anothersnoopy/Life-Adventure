@@ -1,59 +1,38 @@
 #include<iostream>
 #include<fstream>
-#include"function.cpp"
+#include<cstdlib>
+#include"function.h"
+#include"call_function.h"
 using namespace std;
 
 int main()
 {
-	Good good;
-	Bad bad;
-	Write write;
-	Data data;
+	int write_diary();
+	int check_data();
+	int make_plan();
+	int check_plan();
+	
+	system("clear");
+	
+	cout<<"		Welcome to Life Adventure !"<<endl;
+	cout<<endl;
+	cout<<"what do you want to do?"<<endl;
+	cout<<"		1. Record today."<<endl;
+	cout<<"		2. Check latest data."<<endl;
+	cout<<"		3. Make a plan."<<endl;
+	cout<<"		4. Check plan completion"<<endl;
+	cout<<endl;
+	cout<<"please choose:";
 
-
-	ifstream infile(PATH);
-	if(!infile)
+	int i;
+	cin>>i;
+	switch(i)
 	{
-		cout<<"Can not open the diary."<<endl;
-		return -1 ;
-	}
-	infile.close();
-
-
-	data.read();//read yesterday's summary
-	write.date();//write today's date
-	write.table_head();
-	
-	good.sleep();
-	good.outhome();
-	good.sport();
-	good.word();
-	good.Nsleep();
-	good.NFN();
-	good.cn_paper();
-	good.en_paper();
-	good.review();
-	good.PP();
-	good.OTG();
-	good.PureThinking();
-	good.TheFour();
-
-
-	bad.S();
-	bad.MM();
-	bad.CM();
-	bad.game_weekday();
-	bad.GV();
-	bad.unhealthy_info();
-	bad.UNB();
-	
-	write.note();
-	write.summary();
-
-	
-	cout<<endl;
-	cout<<" ok,finished."<<endl;
-	cout<<endl;
+		case 1: write_diary();break;
+		case 2: check_data();break;
+		case 3: make_plan();break;
+		case 4: check_plan();break;
+	};
 
 	return 0;
 }

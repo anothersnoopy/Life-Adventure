@@ -15,6 +15,9 @@ class Good
 	void TheFour();//Read <The Four>
 	void Nsleep();// Noon sleep for 20-30min between 12:30-13:50
 	void PureThinking();//pure thinking
+	void WhiteHouse();
+	void readgood();
+	void paperDiary();// Did you record your life on paper yesterday?
 
 	private:
 	int word_score;
@@ -27,6 +30,9 @@ class Good
 	int TheFour_score;
 	int Nsleep_score;
 	int PT_score;
+	int WH_score;
+	int RG_score;
+	int PD_score;
 };
 
 class Bad
@@ -47,6 +53,15 @@ class Bad
 	CM_score, GV_score;
 };
 
+
+class Plan
+{
+	public:
+	void make();
+	int check();
+	
+}; 
+
 class Write
 {
 	public:
@@ -60,4 +75,5 @@ class Data
 {
 	public:
 	void read();
+	void write();
 };
