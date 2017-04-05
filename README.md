@@ -51,7 +51,7 @@ Enjoy your life as an adventure game
 ## v1.3 update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
 ![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
-> + Add new feature: record the day you leave darkness(v1.3)
+> + Add new feature: record how long you leave old days(v1.3)
 
 -----
 ## v1.4 update log
