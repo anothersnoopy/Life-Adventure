@@ -92,6 +92,13 @@ Enjoy your life as an adventure game
 > + Other small improvement.
 
 
+## v2.1 update log
+#### 晚风拂柳笛声残，夕阳山外山。天之涯，地之角，知交半零落。
+![sunset](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/8.jpg)
+> + Improved Plan system: Now your plan score will be included in the total score and H-E-S system(If you can finish your plan).
+> + Improved score plan.
+> + Other improvement.
+
 ----------------
 ## Secret Garden
 ![SecretGarden](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/6.jpg)
