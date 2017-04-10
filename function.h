@@ -4,23 +4,24 @@
 #include<iomanip>
 using namespace std;
 
-//#define PATH_data "/home/Kevin/Diary/22-field/data/data.md"
-//#define PATH "/home/Kevin/Diary/22-field/data/diary.md"
-//#define PATH_plan "/home/Kevin/Diary/22-field/data/plan.md"
+//#define PATH_data "/home/Kevin/Diary/24-field/data/data.md"
+//#define PATH "/home/Kevin/Diary/24-field/data/diary.md"
+//#define PATH_plan "/home/Kevin/Diary/24-field/data/plan.md"
 #define PATH "/mnt/f/OneDrive/diary.md"
 #define PATH_data "/mnt/f/OneDrive/diarydata/data.md"
 #define PATH_plan "/mnt/f/OneDrive/diarydata/plan.md"
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
-total_slpe, total_spt, total_OTG, total_PP, total_NFN, \
+total_slpe, total_spt, total_OTG, total_PP,  \
 total_rv, total_day, total_TheFour, total_Nsleep,\
-reward, total_PT, total_WH, total_RG, total_PD;//total socres (Good)
+reward, total_PT, total_WH, total_RG, total_PD, total_BP, \
+total_fruit;//total socres (Good)
 
 static int total_S, total_gmwd, total_uhi, total_UNB, \
-total_MM, total_CM, total_GV;//total scores(Bad)
+total_MM, total_CM, total_GV, total_DM;//total scores(Bad)
 
 static double yesterday_H, yesterday_E, yesterday_S, today_energy,\
-today_health, today_spirit;
+today_health, today_spirit, H_growth, E_growth, S_growth;
 
 static int total_plan;//plan score
 
@@ -39,7 +40,6 @@ Good::Good()//class Good constructor
 	sport_score = 0;
 	OTG_score = 0;
 	PP_score = 0;
-	NFN_score = 0;
 	review_score = 0;
 	total_day = 0;
 	TheFour_score = 0;
@@ -48,6 +48,8 @@ Good::Good()//class Good constructor
 	WH_score = 0;
 	RG_score = 0;
 	PD_score = 0;
+	baptism_score = 0;
+	fruit_score = 0;
 
 }
 
@@ -62,7 +64,7 @@ void Good::word()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		word_score = 10;
+		word_score = 20;
 	}
 
 	total_wd += word_score;
@@ -77,14 +79,35 @@ void Good::outhome()
 	diary.open(PATH,ios::app);
 		
 	char finish;
-	cout<<"Have you go out of dormitory before 8:30?"<<endl;
+	cout<<"Morning: Go out of dormitory before 8:30?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
 	{
-		out_score = 20;
+		out_score = 10;
 	}
+	else out_score = -5;
+
+	cout<<"	Noon: Go out of dormitory before 14:30?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		out_score = out_score + 10;
+	}
+	else out_score = out_score - 5;
+
+	cout<<"		Evening: Go out of dormitory before 19:30?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		out_score += 10;
+	}
+	else out_score = out_score - 5;
+
 	total_ot += out_score;
+
 	diary<<"| outhome score | "<<out_score<<" |"<<endl;
 	diary.close();
 }
@@ -141,7 +164,7 @@ void Good::sleep()// improve suggestion: input sleep time
 	cin>>finish;
 	if(finish == 'y')
 	{
-		sleep_score = 25;
+		sleep_score = 30;
 	}
 	else 
 		{
@@ -170,7 +193,7 @@ void Good::sport()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		sport_score = 25;
+		sport_score = 30;
 	}
 
 	total_spt += sport_score;
@@ -221,26 +244,6 @@ void Good::PP()
 	diary.close();
 }
 
-void Good::NFN()
-{
-	ofstream diary;
-	diary.open(PATH,ios::app);
-
-	char finish;
-	cout<<"No Food at Night today ?"<<endl;
-	cout<<"(y/n)";
-	cin>>finish;
-	if(finish == 'y')
-	{
-		NFN_score = 20;
-	}
-
-	total_NFN += NFN_score;
-
-	diary<<"| No Food tonight | "<<NFN_score<<" |"<<endl;
-	diary.close();
-}
-
 
 void Good::review()
 {
@@ -281,6 +284,10 @@ void Good::TheFour()
 		TheFour_score = (30 * i);
 	}
 	else TheFour_score = -20;
+	if( TheFour_score >= 60 )
+	{
+		TheFour_score = 60;// no more than 60 per day
+	}
 
 	total_TheFour += TheFour_score;
 	diary<<"| The Four | "<<TheFour_score<<" |"<<endl;
@@ -308,7 +315,7 @@ void Good::Nsleep()
 			Nsleep_score = 20;
 		}
 		else
-			Nsleep_score = -20;
+			Nsleep_score = -10;
 	}
 
 	total_Nsleep += Nsleep_score;
@@ -352,7 +359,7 @@ void Good::WhiteHouse()
 	{
 		WH_score = 20;
 	}
-	else WH_score = -40; 
+	else WH_score = -30; 
 	total_WH += WH_score;
 	diary<<"| White House | "<<WH_score<<" |"<<endl;
 	diary.close();
@@ -371,9 +378,9 @@ void Good::readgood()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		RG_score = 20;
+		RG_score = 15;
 	}
-	else RG_score = -20;
+	else RG_score = -15;
 	total_RG += RG_score;
 	diary<<"| Read-Good score | "<<RG_score<<" |"<<endl;
 	diary.close();
@@ -400,6 +407,46 @@ void Good::paperDiary()
 }
 
 
+void Good::baptism()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+		
+	char finish;
+	cout<<"Baptism ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		baptism_score = 30;
+	}
+	else baptism_score = -5;
+	total_BP += baptism_score;
+	diary<<"| Baptism score | "<<baptism_score<<" |"<<endl;
+	diary.close();
+}
+
+void Good::fruit()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"Did you eat fruit today ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		fruit_score = 10;
+	}
+
+	total_fruit += fruit_score;
+
+	diary<<"| fruit score | "<<fruit_score<<" |"<<endl;
+	diary.close();
+}
+
+
 ////////////////////////Bad Functions/////////////////////////////
 
 
@@ -412,6 +459,7 @@ Bad::Bad()// class Bad constructor
 	MM_score = 0;
 	CM_score = 0;
 	GV_score = 0;
+	DM_score = 0;
 }
 	
 
@@ -579,6 +627,31 @@ void Bad::GV()
 	diary.close();
 }
 
+
+void Bad::DM()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"### Eat Food at dormitory today ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		DM_score = -20;
+	}
+	else DM_score = 5;
+	
+	total_DM += DM_score;
+	
+	diary<<"| Dormitory Meal | "<<DM_score<<" |"<<endl;
+	diary.close();
+}
+
+
+
+
 ////////////////////////////Others//////////////////////////////
 void Write::table_head()
 {
@@ -647,20 +720,24 @@ void Data::read()// to read yesterday's data
 	istringstream ss(line);
 
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
-	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_NFN[15],m_rv[15]\
+	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_rv[15]\
 	,m_S[15],m_gwkd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
 	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15],m_Health[15]\
-	,m_Energy[15], m_Spirit[15], m_WhiteHouse[15], m_readgood[15], m_PD[15];
+	,m_Energy[15], m_Spirit[15], m_WhiteHouse[15], m_readgood[15], m_PD[15]\
+	,m_BP[15],m_Hgrowth[15],m_Egrowth[15],m_Sgrowth[15], m_DM[15], m_fruit[15]\
+	,m_plan[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
-	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP>>m_NFN>>total_NFN\
+	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP\
 	>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
 	>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
 	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
 	>>total_Nsleep>>m_GV>>total_GV>>m_PT>>total_PT>>m_Health\
 	>>yesterday_H>>m_Energy>>yesterday_E>>m_Spirit>>yesterday_S>>m_WhiteHouse\
-	>>total_WH>>m_readgood>>total_RG>>m_PD>>total_PD;
+	>>total_WH>>m_readgood>>total_RG>>m_PD>>total_PD>>m_BP>>total_BP\
+	>>m_Hgrowth>>H_growth>>m_Egrowth>>E_growth>>m_Sgrowth>>S_growth>>m_DM\
+	>>total_DM>>m_fruit>>total_fruit>>m_plan>>total_plan;
 	
 	infile.close();
 }
@@ -669,7 +746,29 @@ void Data::read()// to read yesterday's data
 
 
 void Write::summary()
-{
+{	
+/////////////Get total_plan score/////////////
+	ifstream infile;
+	infile.open(PATH_plan);
+
+	if(!infile)
+	{
+		cout<<"Can not open plan list !"<<endl;
+	}
+	
+	string line;
+	string temp;
+	while(infile>>temp)
+	{
+		getline(infile, line);
+	}
+	istringstream ss(line);
+	
+	ss>>total_plan;
+
+	infile.close();
+/////////////Get total_plan score END///////
+
 	ofstream diary;
 	diary.open(PATH,ios::app);
 
@@ -683,32 +782,28 @@ void Write::summary()
 
 
 ///////////////Victory Day reward system//////////
-	if(total_day <= 6)
+	if(total_day <= 14)
 	{
 		reward = (total_day * 2);
 	}
-	else if(total_day <= 14)
-	{
-		reward = 15;
-	}
 	else if(total_day <= 30)
-	{
-		reward = 20;
-	}
-	else if(total_day <= 60)
 	{
 		reward = 30;
 	}
-	else if(total_day <= 90)
+	else if(total_day <= 60)
 	{
 		reward = 40;
 	}
-	else if(total_day <= 120)
+	else if(total_day <= 90)
 	{
 		reward = 50;
 	}
-	else
+	else if(total_day <= 120)
+	{
 		reward = 60;
+	}
+	else
+		reward = 80;
 	
 	
 	cout<<endl;/////for good display on bash shell
@@ -762,21 +857,23 @@ void Write::summary()
 
 ///////If add new items, you need edit this line below////////////
 	total_sc = total_wd + total_ot + total_cnp + total_enp + total_slpe\
-	+ total_spt + total_OTG + total_PP + total_NFN +  total_rv\
+	+ total_spt + total_OTG + total_PP +  total_rv\
 	+ total_TheFour + total_Nsleep + total_PT + total_S + total_gmwd\
 	+  total_uhi + total_UNB + total_MM + total_CM + total_WH + total_RG\
-	+ total_PD + total_GV + reward + total_plan;
+	+ total_PD + total_GV + reward + total_plan + total_BP + total_DM\
+	+ total_fruit;
 
 
 
 //////////Health, Energy, Spirit///////////
 	
-	double total_health = 3000.00;
-	today_health = (total_slpe + total_NFN + total_spt + total_S\
-	+ total_uhi + total_Nsleep + total_PT + total_WH + reward) / total_health * 100;
+	double total_health = 5000.00;
+	today_health = (total_slpe + total_spt + total_S\
+	+ total_uhi + total_Nsleep + total_PT + total_WH\
+	+ reward + total_fruit) / total_health * 100;
 	diary<<endl;
 	
-	double H_growth = today_health - yesterday_H;
+	H_growth = today_health - yesterday_H;
 
 	diary<<"**Health** : "<<fixed<<setprecision(2)<<today_health\
 	<<"%"<<"	("<<showpos<<H_growth<<"%)"<<endl;
@@ -813,9 +910,10 @@ void Write::summary()
 	double total_energy = 5000; 
 	today_energy = ( total_ot + total_wd + total_cnp + \
 	total_enp + total_gmwd + total_rv + total_UNB + total_MM \
-	+ total_CM + total_GV + E_reward + total_RG + total_PD) / total_energy * 100;
+	+ total_CM + total_GV + E_reward + total_RG + total_PD + \
+	+ total_plan + total_DM ) / total_energy * 100;
 
-	double E_growth = today_energy - yesterday_E;
+	E_growth = today_energy - yesterday_E;
 	
 	diary<<"**Energy** : "<<fixed<<setprecision(2)<<noshowpos\
 	<<today_energy<<"%"<<"	("<<showpos<<E_growth<<"%)"<<endl;
@@ -853,9 +951,9 @@ void Write::summary()
 
 	double total_spirit = 5000;
 	today_spirit =( total_OTG + total_PP + total_TheFour\
-	+ S_reward) / total_spirit * 100 ;
+	+ total_BP + S_reward) / total_spirit * 100 ;
 
-	double S_growth = today_spirit - yesterday_S;
+	S_growth = today_spirit - yesterday_S;
 	
 	diary<<"**Spirit** : "<<fixed<<setprecision(2)<<noshowpos\
 	<<today_spirit<<"%"<<"	("<<showpos<<S_growth<<"%)"<<endl;
@@ -886,15 +984,17 @@ void Data::write()
 	data<<"*"<<" total "<<total_sc<<" word "<<total_wd<<" outhome "\
 	<<total_ot<<" cn_paper "<<total_cnp<<" en_paper "<<total_enp\
 	<<" sleep "<<total_slpe<<" sport "<<total_spt<<" OTG "\
-	<<total_OTG<<" PP "<<total_PP<<" NFN "<<total_NFN\
-	<<" review "<<total_rv<<" S "<<total_S<<\
-	" game_weekday "<<total_gmwd<<\
-	" unhealthy_info "<<total_uhi<<" UNB "<<total_UNB<<" MM "<<\
-	total_MM<<" CM "<<total_CM<<" day "<<total_day<<" TheFour "\
-	<<total_TheFour<<" Nsleep "<<total_Nsleep<<" GameVideo "<<\
-	total_GV<<" PureThinking "<<total_PT<<" Health "<<today_health<<\
-	" Energy "<<today_energy<<" Spirit "<<today_spirit<<" WhiteHouse "<<\
-	total_WH<<" Readgood "<<total_RG<<" PaperDiary "<<total_PD<<endl;
+	<<total_OTG<<" PP "<<total_PP<<" review "<<total_rv<<" S "<<total_S<<\
+	" game_weekday "<<total_gmwd<<" unhealthy_info "<<total_uhi\
+	<<" UNB "<<total_UNB<<" MM "<<total_MM<<" CM "<<total_CM\
+	<<" day "<<total_day<<" TheFour "<<total_TheFour<<" Nsleep "\
+	<<total_Nsleep<<" GameVideo "<<total_GV<<" PureThinking "\
+	<<total_PT<<" Health "<<today_health<<" Energy "<<today_energy\
+	<<" Spirit "<<today_spirit<<" WhiteHouse "<<total_WH<<" Readgood "\
+	<<total_RG<<" PaperDiary "<<total_PD<<" Baptism "<<total_BP\
+	<<" H_growth "<<H_growth<<" E_growth "<<E_growth\
+	<<" S_growth "<<S_growth<<" Dorm_meal "<<total_DM<<" fruit "\
+	<<total_fruit<<" plan "<<total_plan<<endl;
 
 }
 
@@ -1022,6 +1122,11 @@ int Plan::check()
 	
 
 ///////////////check finish///////////////////////
+	ofstream diary;
+	diary.open(PATH_plan, ios::app);// trunc: clean exist file, creat new.
+
+	diary<<endl;
+
 	for(i=1; i< total; i++)
 	{
 		cout<<plan[i]<<endl;
@@ -1034,9 +1139,11 @@ int Plan::check()
 		}
 		cout<<endl;
 	}
+	diary<<"Get "<<total_plan<<endl;
 
 	cout<<"today you get: "<<total_plan<<endl;
 	cout<<endl;
 
 	return 0;
 }
+

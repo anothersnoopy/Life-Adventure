@@ -16,6 +16,10 @@ int main()
 	
 	cout<<"		Welcome to Life Adventure !"<<endl;
 	cout<<endl;
+	cout<<"Actually, there are only two kinds of human in the world,"<<endl;
+	cout<<"		One is Great Personage,"<<endl;
+	cout<<"		The Other is animal."<<endl;
+	cout<<endl;
 	cout<<"what do you want to do?"<<endl;
 	cout<<"		1. Record today."<<endl;
 	cout<<"		2. Check latest data."<<endl;

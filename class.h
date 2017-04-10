@@ -10,7 +10,6 @@ class Good
 	void sport();//
 	void OTG();// do One Thing Good
 	void PP();// Phone Parents
-	void NFN();// No Food at Night
 	void review();// review what you learn this day
 	void TheFour();//Read <The Four>
 	void Nsleep();// Noon sleep for 20-30min between 12:30-13:50
@@ -18,6 +17,8 @@ class Good
 	void WhiteHouse();
 	void readgood();
 	void paperDiary();// Did you record your life on paper yesterday?
+	void baptism();
+	void fruit();//eat fruit is a very good habit.
 
 	private:
 	int word_score;
@@ -26,13 +27,17 @@ class Good
 	int enpaper_score;
 	int sleep_score;
 	int sport_score;
-	int OTG_score, PP_score, NFN_score, review_score;
+	int OTG_score;
+	int PP_score;
+	int review_score;
 	int TheFour_score;
 	int Nsleep_score;
 	int PT_score;
 	int WH_score;
 	int RG_score;
 	int PD_score;
+	int baptism_score;
+	int fruit_score;
 };
 
 class Bad
@@ -46,11 +51,12 @@ class Bad
 	void MM();//Morning mobile: play mobile when get up.
 	void CM();//Class mobile: play mobile on Class.
 	void GV();//Game Video: watch game video during weekday
+	void DM();//Dorm Meal:Eat food at dormitory is a bad habit
 	
 	private:
 	int S_score,  gamewkd_score,\
 	unhealthy_info_score, UNB_score, MM_score,\
-	CM_score, GV_score;
+	CM_score, GV_score, DM_score;
 };
 
 
@@ -77,3 +83,4 @@ class Data
 	void read();
 	void write();
 };
+
