@@ -94,7 +94,6 @@ Enjoy your life as an adventure game
 
 ## v2.1 update log
 #### 晚风拂柳笛声残，夕阳山外山。天之涯，地之角，知交半零落。
-#### Feel lonely ? Make a plan, do it, and entertain yourself with this update!
 
 ![sunset](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/8.jpg)
 > + Improved Plan system: Now your plan score will be included in the total score and H-E-S system(If you can finish your plan).
