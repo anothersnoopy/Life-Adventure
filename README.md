@@ -34,12 +34,12 @@ Enjoy your life as an adventure game
 ### Install:
 1. This project is devloped with C++, so you need a C++ compiler.
 
-2. Edit the PATHs
+2. Edit the PATHs in the function.cpp. 
 > PATH: for your diary; 
 
 > PATH_data: for diary data(you needn't to know what exactly it is); 
 
-> PATH_plan: for your daily plan)  in the function.cpp. 
+> PATH_plan: for your daily plan.
 
 * I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically sync.*
 
@@ -51,7 +51,7 @@ Enjoy your life as an adventure game
 
 ### Usage:
 1. If you have already run the program, There should be messages on the screen, follow them.
-2. If you have finished making a plan, type 'over' to finish the make plan function.
+2. If you have finished making a plan, type 'over' to quit.
 3. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ----
