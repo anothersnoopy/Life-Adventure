@@ -36,8 +36,11 @@ Enjoy your life as an adventure game
 
 2. Edit the PATHs
 > PATH: for your diary; 
+
 > PATH_data: for diary data(you needn't to know what exactly it is); 
+
 > PATH_plan: for your daily plan)  in the function.cpp. 
+
 * I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically sync.*
 
 3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comand lines:
@@ -47,7 +50,7 @@ Enjoy your life as an adventure game
 >`./run`
 
 ### Usage:
-1. If you have already run the program, There will be messages on the screen, follow them.
+1. If you have already run the program, There should be messages on the screen, follow them.
 2. If you have finished making a plan, type 'over' to finish the make plan function.
 3. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
