@@ -17,10 +17,11 @@ Enjoy your life as an adventure game
 **It can(now)** :
 + record your daily life
 + analyze your Health, Energy and Spirit level by multi-factors
++ make a plan and check finish.
++ Set a dream and display the date your dream may come true.(Beta)
+
 
 **I  (may) will add these features in the future**: 
-+ set a dream (for instance: Buy a Macbook pro) and set conditions( eg: Energy reaches 100%, or sport scores reached 500) . If you meet the condition, buy it!
-
 + randomly put some good sentences into your diary(be self-motivated) .
 
 
@@ -29,16 +30,26 @@ Enjoy your life as an adventure game
 
 
 ## How to use it:
+
+### Install:
 1. This project is devloped with C++, so you need a C++ compiler.
 
-2. Edit the PATH(where you want your diary stay) in the function.cpp. I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically sync.
+2. Edit the PATHs
+> PATH: for your diary; 
+> PATH_data: for diary data(you needn't to know what exactly it is); 
+> PATH_plan: for your daily plan)  in the function.cpp. 
+* I Personally recommend you to set the 'PATH' to your OneDrive (or any other sync service you have ) file folder directory so that your diary can automatically sync.*
 
 3. Once you have a C++ compiler, compile it and run. For example, on linux if you have g++ , use these comand lines:
 
 >`g++ main.cpp -o run`
 
 >`./run`
-4. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
+
+### Usage:
+1. If you have already run the program, There will be messages on the screen, follow them.
+2. If you have finished making a plan, type 'over' to finish the make plan function.
+3. The diary will be writed following Markdown grammar, so you'd better open it by a Markdown editor, I personally suggest 'Typora' on Windows. 
 
 ----
 
@@ -91,7 +102,7 @@ Enjoy your life as an adventure game
 > + New feature: Now you can make a plan in the morning and check your plan list in the evening.
 > + Other small improvement.
 
-
+-----------------
 ## v2.1 update log
 #### 晚风拂柳笛声残，夕阳山外山。天之涯，地之角，知交半零落。
 
