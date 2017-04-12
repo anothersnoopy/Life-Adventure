@@ -56,8 +56,10 @@ Enjoy your life as an adventure game
 
 ----
 
-
 ## How to personalize this program
+### Don't follow others'steps when make your own trip. 
+### 不要拿着别人的地图，找自己的路。
+
 + [manual.md](https://github.com/anothersnoopy/Life-Adventure/blob/master/manual.md) could tell you how to add new functions in this program.
 + Be patient! Read the codes by yourself, it is very easy.
 
