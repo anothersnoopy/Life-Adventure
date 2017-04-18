@@ -19,6 +19,7 @@ class Good
 	void paperDiary();// Did you record your life on paper yesterday?
 	void baptism();
 	void fruit();//eat fruit is a very good habit.
+	void sacredsight();//keep my sight sacred
 
 	private:
 	int word_score;
@@ -38,6 +39,7 @@ class Good
 	int PD_score;
 	int baptism_score;
 	int fruit_score;
+	int ss_score;//sacred sight
 };
 
 class Bad
@@ -52,11 +54,12 @@ class Bad
 	void CM();//Class mobile: play mobile on Class.
 	void GV();//Game Video: watch game video during weekday
 	void DM();//Dorm Meal:Eat food at dormitory is a bad habit
+	void daze();//daze is a very bad habit. It wastes your time. It will kill you.
 	
 	private:
 	int S_score,  gamewkd_score,\
 	unhealthy_info_score, UNB_score, MM_score,\
-	CM_score, GV_score, DM_score;
+	CM_score, GV_score, DM_score, daze_score;
 };
 
 
@@ -84,3 +87,9 @@ class Data
 	void write();
 };
 
+class Message
+{
+	public:
+	Message();
+	std::string msg[100];
+};

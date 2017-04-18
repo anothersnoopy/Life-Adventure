@@ -3,40 +3,29 @@
 #include<cstdlib>
 #include"function.h"
 #include"call_function.h"
+//#include"Message.h"
 using namespace std;
 
 int main()
 {
-	int write_diary();
-	int check_data();
-	int make_plan();
-	int check_plan();
-	
-	system("clear");
-	
-	cout<<"		Welcome to Life Adventure !"<<endl;
-	cout<<endl;
-	cout<<"Actually, there are only two kinds of human in the world,"<<endl;
-	cout<<"		One is Great Personage,"<<endl;
-	cout<<"		The Other is animal."<<endl;
-	cout<<endl;
-	cout<<"what do you want to do?"<<endl;
-	cout<<"		1. Record today."<<endl;
-	cout<<"		2. Check latest data."<<endl;
-	cout<<"		3. Make a plan."<<endl;
-	cout<<"		4. Check plan completion"<<endl;
-	cout<<endl;
-	cout<<"please choose:";
-
 	int i;
-	cin>>i;
-	switch(i)
+	do
 	{
-		case 1: write_diary();break;
-		case 2: check_data();break;
-		case 3: make_plan();break;
-		case 4: check_plan();break;
-	};
+		welcome();
+		cin>>i;
+		switch(i)
+		{
+			case 1: i = write_diary();break;
+			case 2: i = check_data();break;
+			case 3: i = make_plan();break;
+			case 4: i = check_plan();break;
+			case 5: random_sentences();i = overcheck();break;// Easter Egg
+			case 0: cout<<"			Bye ^_~"<<endl<<endl;break;
+			default: cout<<endl<<"	请输入个数字..."<<endl<<endl;break;
+		}
+
+	}
+	while( i != 0);
 
 	return 0;
 }

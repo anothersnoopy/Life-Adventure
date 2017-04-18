@@ -4,21 +4,21 @@
 #include<iomanip>
 using namespace std;
 
-//#define PATH_data "/home/Kevin/Diary/24-field/data/data.md"
-//#define PATH "/home/Kevin/Diary/24-field/data/diary.md"
-//#define PATH_plan "/home/Kevin/Diary/24-field/data/plan.md"
-#define PATH "/mnt/f/OneDrive/diary.md"
-#define PATH_data "/mnt/f/OneDrive/diarydata/data.md"
-#define PATH_plan "/mnt/f/OneDrive/diarydata/plan.md"
+#define PATH_data "/home/Kevin/Diary/28-field/data/data.md"
+#define PATH "/home/Kevin/Diary/28-field/data/diary.md"
+#define PATH_plan "/home/Kevin/Diary/28-field/data/plan.md"
+//#define PATH "/mnt/f/OneDrive/diary.md"
+//#define PATH_data "/mnt/f/OneDrive/diarydata/data.md"
+//#define PATH_plan "/mnt/f/OneDrive/diarydata/plan.md"
 
 static int total_sc,total_wd,total_ot,total_cnp, total_enp,\
 total_slpe, total_spt, total_OTG, total_PP,  \
 total_rv, total_day, total_TheFour, total_Nsleep,\
 reward, total_PT, total_WH, total_RG, total_PD, total_BP, \
-total_fruit;//total socres (Good)
+total_fruit, total_ss;//total socres (Good)
 
 static int total_S, total_gmwd, total_uhi, total_UNB, \
-total_MM, total_CM, total_GV, total_DM;//total scores(Bad)
+total_MM, total_CM, total_GV, total_DM, total_daze;//total scores(Bad)
 
 static double yesterday_H, yesterday_E, yesterday_S, today_energy,\
 today_health, today_spirit, H_growth, E_growth, S_growth;
@@ -50,6 +50,7 @@ Good::Good()//class Good constructor
 	PD_score = 0;
 	baptism_score = 0;
 	fruit_score = 0;
+	ss_score = 0;
 
 }
 
@@ -84,27 +85,27 @@ void Good::outhome()
 	cin>>finish;
 	if(finish == 'y')
 	{
-		out_score = 10;
+		out_score = 20;
 	}
-	else out_score = -5;
+	else out_score = -50;
 
 	cout<<"	Noon: Go out of dormitory before 14:30?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
 	{
-		out_score = out_score + 10;
+		out_score = out_score + 20;
 	}
-	else out_score = out_score - 5;
+	else out_score = out_score - 50;
 
 	cout<<"		Evening: Go out of dormitory before 19:30?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
 	{
-		out_score += 10;
+		out_score += 20;
 	}
-	else out_score = out_score - 5;
+	else out_score = out_score - 50;
 
 	total_ot += out_score;
 
@@ -118,12 +119,24 @@ void Good::cn_paper()
 	diary.open(PATH,ios::app);
 
 	char finish;
-	cout<<"Read a piece of literature in Chinese?"<<endl;
+	cout<<"Read literatures in Chinese?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
 	{
-		cnpaper_score = 100;
+		cout<<"	How many ?"<<endl;
+		int i;
+		cin>>i;
+		while(cin.fail())// if cin went wrong, return 'true'
+		{
+			cin.clear();//reset cin parameter
+			cout<<"	You should input a number. ^_~"<<endl;
+			cout<<"	How many papers ?"<<endl;
+			cin.ignore(10000,'\n');//clear last-time input content
+			cin>>i;
+		}
+
+		cnpaper_score = 50 * i;
 	}
 
 	total_cnp += cnpaper_score;
@@ -139,12 +152,23 @@ void Good::en_paper()
 	diary.open(PATH,ios::app);
 
 	char finish;
-	cout<<"Read a piece of literature in English?"<<endl;
+	cout<<"Read literatures in English?"<<endl;
 	cout<<"(y/n)";
 	cin>>finish;
 	if(finish == 'y')
 	{
-		enpaper_score = 200;
+		cout<<"	How many ?"<<endl;
+		int i;
+		cin>>i;
+		while(cin.fail())// if cin went wrong, return 'true'
+		{
+			cin.clear();//reset cin parameter
+			cout<<"	You should input a number. ^_~"<<endl;
+			cout<<"	How many papers ?"<<endl;
+			cin.ignore(10000,'\n');//clear last-time input content
+			cin>>i;
+		}
+		enpaper_score = 200 * i;
 	}
 
 	total_enp += enpaper_score;
@@ -281,6 +305,14 @@ void Good::TheFour()
 	{
 		cout<<" How many times ?"<<endl;
 		cin>>i;
+		while(cin.fail())// if cin went wrong, return 'true'
+		{
+			cin.clear();//reset cin parameter
+			cout<<"	The number should between 0-9. ^_~"<<endl;
+			cout<<"	I ask you again: how many times ?"<<endl;
+			cin.ignore(10000,'\n');//clear last-time input content
+			cin>>i;
+		}
 		TheFour_score = (30 * i);
 	}
 	else TheFour_score = -20;
@@ -447,6 +479,32 @@ void Good::fruit()
 }
 
 
+void Good::sacredsight()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"Keep your sight sacred today ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		ss_score = 30;
+	}
+	else
+	{
+		cout<<"	You are not an animal ! Please keep sacred."<<endl;
+		ss_score = -30;
+	}
+
+	total_ss += ss_score;
+
+	diary<<"| sacred sight score | "<<ss_score<<" |"<<endl;
+	diary.close();
+}
+
+
 ////////////////////////Bad Functions/////////////////////////////
 
 
@@ -460,6 +518,8 @@ Bad::Bad()// class Bad constructor
 	CM_score = 0;
 	GV_score = 0;
 	DM_score = 0;
+	daze_score = 0;
+
 }
 	
 
@@ -475,8 +535,18 @@ void Bad::S()
 	if(finish == 'y')
 	{
 		cout<<"		How many times?"<<endl;
-		int i= 1;
+		int i;
 		cin>>i;
+		
+		while(cin.fail())// if cin went wrong, return 'true'
+		{
+			cin.clear();//reset cin parameter
+			cout<<"	Input a number please. "<<endl;
+			cout<<"	How many times ?"<<endl;
+			cin.ignore(10000,'\n');//clear last-time input content
+			cin>>i;
+		}
+
 		S_score = (-200*i);
 		total_day = -1;
 	}
@@ -650,6 +720,29 @@ void Bad::DM()
 }
 
 
+void Bad::daze()
+{
+	ofstream diary;
+	diary.open(PATH,ios::app);
+
+	char finish;
+	cout<<"### Sometimes in a daze ?"<<endl;
+	cout<<"(y/n)";
+	cin>>finish;
+	if(finish == 'y')
+	{
+		cout<<"		It will kill you. Your life must be explicit and sane."<<endl;
+		cout<<endl;
+		cout<<"		loss 50 points"<<endl<<endl;
+		daze_score = -50;
+	}
+	else daze_score = 5;
+	
+	total_daze += daze_score;
+	
+	diary<<"| Daze | "<<daze_score<<" |"<<endl;
+	diary.close();
+}
 
 
 ////////////////////////////Others//////////////////////////////
@@ -725,7 +818,7 @@ void Data::read()// to read yesterday's data
 	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15],m_Health[15]\
 	,m_Energy[15], m_Spirit[15], m_WhiteHouse[15], m_readgood[15], m_PD[15]\
 	,m_BP[15],m_Hgrowth[15],m_Egrowth[15],m_Sgrowth[15], m_DM[15], m_fruit[15]\
-	,m_plan[15];
+	,m_plan[15], m_daze[15], m_ss[15];
 	
 	ss>>m_total>>total_sc>>m_word>>total_wd>>m_outhome>>total_ot\
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
@@ -737,7 +830,8 @@ void Data::read()// to read yesterday's data
 	>>yesterday_H>>m_Energy>>yesterday_E>>m_Spirit>>yesterday_S>>m_WhiteHouse\
 	>>total_WH>>m_readgood>>total_RG>>m_PD>>total_PD>>m_BP>>total_BP\
 	>>m_Hgrowth>>H_growth>>m_Egrowth>>E_growth>>m_Sgrowth>>S_growth>>m_DM\
-	>>total_DM>>m_fruit>>total_fruit>>m_plan>>total_plan;
+	>>total_DM>>m_fruit>>total_fruit>>m_plan>>total_plan>>m_daze>>total_daze\
+	>>m_ss>>total_ss;
 	
 	infile.close();
 }
@@ -813,35 +907,35 @@ void Write::summary()
 	if((total_day % 7) == 0)
 	{
 		reward = reward + 30;
-		diary<<"Yes! Week reward: 30 "<<endl;
+		diary<<"**Yes! Week reward: 30**"<<endl<<endl;
 		cout<<" Yes! Week reward: 30 "<<endl;
 	}
 	
 	if((total_day % 30) == 0 )
 	{
 		reward = reward + 100;
-		diary<<"Good! Month reward: 100 "<<endl;
+		diary<<"**Good! Month reward: 100**"<<endl<<endl;
 		cout<<" Good! Month reward: 100 "<<endl;
 	}
 	
 	if((total_day % 100) == 0 )
 	{
 		reward = reward + 300;
-		diary<<"Excellent! Hundred-Day reward: 300 "<<endl;
+		diary<<"**Excellent! Hundred-Day reward: 300**"<<endl<<endl;
 		cout<<" Excellent! Hundred-Day reward: 300 "<<endl;
 	}
 	
 	if((total_day % 183) == 0 )
 	{
 		reward = reward + 500;
-		diary<<"Splendid! Half-Year reward: 500 "<<endl;
+		diary<<"**Splendid! Half-Year reward: 500**"<<endl<<endl;
 		cout<<"Splendid! Half-Year reward: 500 "<<endl;
 	}
 	
 	if((total_day % 365) == 0 )
 	{
 		reward = reward + 1000;
-		diary<<"Unbelievable ! Year reward: 1000 "<<endl;
+		diary<<"**Unbelievable ! Year reward: 1000** "<<endl<<endl;
 		cout<<"Unbelievable ! Year reward: 1000 "<<endl;
 	}
 	}///////////avoid end////////////
@@ -861,7 +955,7 @@ void Write::summary()
 	+ total_TheFour + total_Nsleep + total_PT + total_S + total_gmwd\
 	+  total_uhi + total_UNB + total_MM + total_CM + total_WH + total_RG\
 	+ total_PD + total_GV + reward + total_plan + total_BP + total_DM\
-	+ total_fruit;
+	+ total_fruit + total_daze + total_ss;
 
 
 
@@ -882,8 +976,9 @@ void Write::summary()
 	int E_reward;
 	if(today_health < 0)
 	{
-		E_reward = -5;
+		E_reward = today_health;
 	}
+	
 	else if(today_health < 0.2)
 	{
 		E_reward = 5;
@@ -911,7 +1006,7 @@ void Write::summary()
 	today_energy = ( total_ot + total_wd + total_cnp + \
 	total_enp + total_gmwd + total_rv + total_UNB + total_MM \
 	+ total_CM + total_GV + E_reward + total_RG + total_PD + \
-	+ total_plan + total_DM ) / total_energy * 100;
+	+ total_plan + total_DM + total_daze + total_ss) / total_energy * 100;
 
 	E_growth = today_energy - yesterday_E;
 	
@@ -923,7 +1018,7 @@ void Write::summary()
 	int S_reward;
 	if(today_energy < 0)
 	{
-		S_reward = -5;
+		S_reward = today_energy;
 	}
 	else if(today_energy < 0.2)
 	{
@@ -994,10 +1089,11 @@ void Data::write()
 	<<total_RG<<" PaperDiary "<<total_PD<<" Baptism "<<total_BP\
 	<<" H_growth "<<H_growth<<" E_growth "<<E_growth\
 	<<" S_growth "<<S_growth<<" Dorm_meal "<<total_DM<<" fruit "\
-	<<total_fruit<<" plan "<<total_plan<<endl;
+	<<total_fruit<<" plan "<<total_plan<<" daze "<<total_daze\
+	<<" sacredsight "<<total_ss<<endl;
 
 }
-
+//////////////////// Write summary END ////////////////////////
 
 
 
@@ -1147,3 +1243,62 @@ int Plan::check()
 	return 0;
 }
 
+
+
+Message::Message()
+{
+	msg[1] = "	原来人可以度过最无望的日子，抖落身上的灰雨，重披一身星光。";
+	msg[2] = "	若你有幸与众不同，那么请永远不要改变。";
+	msg[3] = "	人生的精彩，与奢华无关。";
+	msg[4] = "	在德不在险。";
+	msg[5] = "	站在树上的鸟儿，从来不会害怕树枝断裂，因为它相信的不是树枝，而是自己的翅膀";
+	msg[6] = "	走崎岖路，需平常心";
+	msg[7] = "	不要，只因一次挫败，就放弃你原来决心达到的目的。";
+	msg[8] = "	当你真心渴望某样东西时，整个世界都会来帮忙。";
+	msg[9] = "	生活中最困难的事情也是最值得去做的。";
+	msg[10] = "	担心出现问题，往往比问题真正出现更加让人感到难过和痛苦。";
+	msg[11] = "	明年今日，你会希望此时此刻自己已经行动了。";
+	msg[12] = "	记得常回头看看以前犯的错误，但绝不要为它们感到后悔。";
+	msg[13] = "	培养能力就是创造一个强大的心理免疫系统。";
+	msg[14] = "	你要做的是相信自己，你能作茧自缚，那么你也能破茧成蝶。";
+	msg[15] = "	生活就像自行车。要保持平衡，你就得不停地前进。";
+	msg[16] = "	有时候，最困难的不是放手，而是学着如何开始。";
+	msg[17] = "	决定我们成为什么样的人的，不是我们的能力，而是我们的选择。";
+	msg[18] = "	世界上对勇气的最大考验是忍受失败，而不是丧失信心。";
+	msg[19] = "	只要你不停攀登，就能到达任何一座山峰之巅";
+	msg[20] = "	正是那些让人心绪沉重的时刻，日后成了我们巨大满足和快乐的源泉";
+	msg[21] = "	坏消息是光阴似箭，好消息是弓在你手中";
+	msg[22] = "	努力没有替代品。最先开始，最后离开。";
+	msg[23] = "	成功不是结局，失败也不是灾难，持续的勇气才是最重要的。";
+	msg[24] = "	不管你的目标是什么，一心一意是最关键的。";
+	msg[25] = "	一个新的目标，一个新的梦想，从来不晚";
+	msg[26] = "	你要贪玩儿，可以，但要记住，贪玩儿是要付出代价的。";
+	msg[27] = "	人生是要奋斗的，顺境要奋斗，逆境更要如此。人生因奋斗而有意义，没有奋斗的人生就像行尸走肉一般。";
+	msg[28] = "	无论做什么事都要懂得规划，有了规划才能有目标，有目标做事才有动力。";
+	msg[29] = "	但是身处当时的自己，却是那么享受那种设定目标并完成目标、发现困难并克服困难的成就感。";
+	msg[30] = "	奋斗是为了让自己成长，让自己变强大，而不是为了去和他人比较";
+	msg[31] = "	每个奋斗的日子，我都不敢停歇脚步，因为心里明白未来还有好多目标等着我一个一个去攻克，未来还有好多路等着我去踏上坚实的足印。";
+	msg[32] = "	知道傻子为什么能成功吗？因为傻子很傻，他不管自己是不是能够做成，也不管别人怎么笑话他，也不管遇到多少困难，他只是一个人傻头傻脑的一直做。而聪明人很聪明，他总会考虑自己目前的目标对不对，会不会有更好的方法，能不能抄捷径省时间。最后聪明人选择了一条又一条路，每条路都刚走了一点点又换，所以，他总是在离起点不远的地方徘徊。最后，傻子比聪明人先到达了终点。";
+	msg[33] = "	对于未来，我只梦想最好的情况，并定下最踏实的计划，而绝不花时间在无畏的担心上，因为我知道，只要把我对自己的承诺付诸实践，我的未来将不会只是一个梦。";
+	msg[34] = "	慆慢则不能励精，险躁则不能冶性。";
+	msg[35] = "	非淡泊无以明志，非宁静无以致远。";
+	msg[36] = "	吾闻之，新沐者必弹冠，新浴者必振衣；安能以身之察察，受物之汶汶者乎！";
+	msg[37] = "	安能以皓皓之白，而蒙世俗之尘埃乎！";
+	msg[38] = "	夫祸患常积于忽微，而智勇多困于所溺。";
+	msg[39] = "	料峭春风吹酒醒，微冷，山头斜照却相迎。";
+	msg[40] = "	竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。";
+	msg[41] = "	回首向来萧瑟处，归去，也无风雨也无晴。";
+	msg[42] = "	山气日夕佳，飞鸟相与还。此中有真意，欲辩已忘言。";
+	msg[43] = "	我来问道无余说，云在青天水在瓶。";
+	msg[44] = "	苍苍竹林寺，杳杳钟声晚。";
+	msg[45] = "	客亦知夫水与月乎？逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也";
+	msg[46] = "	南朝四百八十寺，多少楼台烟雨中。";
+	msg[47] = "	行到水穷处，坐看云起时。偶然值林叟，谈笑无还期。";
+	msg[48] = "	春潮带雨晚来急，野渡无人舟自横。";
+	msg[49] = "	春有百花秋有月，夏有凉风冬有雪。";
+	msg[50] = "	空山新雨后，天气晚来秋。";
+	msg[51] = "	明月松间照，清泉石上流";
+	msg[52] = "	惟江上之清风，与山间之明月。耳得之而为声，目遇之则成色。";
+
+
+}
