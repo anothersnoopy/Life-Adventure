@@ -117,6 +117,15 @@ Enjoy your life as an adventure game
 > + Other improvement.
 
 ----------------
+## v2.3 update log
+#### 客亦知夫水与月乎？
+
+> + Improved score plan.
+> + More convennient: New UI
+> + More stable: Bug fixed
+
+
+----------------
 ## Secret Garden
 ![SecretGarden](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/6.jpg)
 
