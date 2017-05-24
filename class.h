@@ -20,6 +20,7 @@ class Good
 	void baptism();
 	void fruit();//eat fruit is a very good habit.
 	void sacredsight();//keep my sight sacred
+	void vegetarian();
 
 	private:
 	int word_score;
@@ -40,6 +41,7 @@ class Good
 	int baptism_score;
 	int fruit_score;
 	int ss_score;//sacred sight
+	int veg_score;
 };
 
 class Bad
@@ -50,15 +52,16 @@ class Bad
 	void game_weekday();//
 	void unhealthy_info();//
 	void UNB();//useless_net_browse
-	void MM();//Morning mobile: play mobile when get up.
-	void CM();//Class mobile: play mobile on Class.
+	void ME();//Morning Electronic : play any kind of electronic product when get up.
+	void CM();//Class Mobile: play mobile in classroom. \
+				You should never play mobile in classroom !
 	void GV();//Game Video: watch game video during weekday
 	void DM();//Dorm Meal:Eat food at dormitory is a bad habit
 	void daze();//daze is a very bad habit. It wastes your time. It will kill you.
 	
 	private:
 	int S_score,  gamewkd_score,\
-	unhealthy_info_score, UNB_score, MM_score,\
+	unhealthy_info_score, UNB_score, ME_score,\
 	CM_score, GV_score, DM_score, daze_score;
 };
 
@@ -78,6 +81,7 @@ class Write
 	void summary();
 	void table_head();
 	void note();
+	void excel();//write excel readable data
 };
 
 class Data

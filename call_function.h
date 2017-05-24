@@ -20,8 +20,8 @@ int random_sentences()
 	Message obj;
 	int x;// a random number
 	srand(time(NULL));
-	x = rand() % 52 + 1;// generate a num between 1-52
-	cout<<endl<<obj.msg[x]<<endl<<endl;
+	x = rand() % 85 + 1;// generate a num between 1-52 /*就是这里*/
+	cout<<obj.msg[x]<<endl<<endl;
 	
 	return 0;
 	
@@ -37,16 +37,17 @@ void welcome()
 	cout<<"	Actually, there are only two kinds of human in the world,"<<endl;
 	cout<<"			One is Great Personage,"<<endl;
 	cout<<"			The Other is animal."<<endl<<endl;
-	random_sentences();
+	cout<<"		";random_sentences();
 	cout<<endl;
-	cout<<"	what do you want to do?"<<endl;
+	cout<<"		what do you want to do?"<<endl<<endl;
 	cout<<"			1. Record today."<<endl;
 	cout<<"			2. Check latest data."<<endl;
 	cout<<"			3. Make a plan."<<endl;
-	cout<<"			4. Check plan completion"<<endl;
+	cout<<"			4. Check plan completion."<<endl;
+	cout<<"			5. Give me a hint!"<<endl;
 	cout<<"			0. Exit"<<endl;
 	cout<<endl;
-	cout<<"	please choose:";
+	cout<<"		please choose:";
 }
 
 
@@ -79,6 +80,7 @@ int write_diary()
 	good.sport();
 	good.word();
 	good.Nsleep();
+	good.vegetarian();
 	good.cn_paper();
 	good.en_paper();
 	good.review();
@@ -93,7 +95,7 @@ int write_diary()
 
 
 	bad.S();
-	bad.MM();
+	bad.ME();
 	bad.CM();
 	bad.DM();
 	bad.game_weekday();
@@ -106,6 +108,7 @@ int write_diary()
 	write.summary();
 
 	data.write();//write today's data
+	write.excel();//write excel readable data
 	
 	system("clear");
 	
@@ -134,7 +137,7 @@ int check_data()// to read yesterday's data
 	
 	char m_total[15],m_word[15],m_outhome[15],m_cnpaper[15],m_enpaper[15]\
 	,m_slpe[15],m_spt[15],m_OTG[15],m_PP[15],m_rv[15]\
-	,m_S[15],m_gwkd[15],m_uhi[15], m_UNB[15], m_MM[15],m_CM[15]\
+	,m_S[15],m_gwkd[15],m_uhi[15], m_UNB[15], m_ME[15],m_CM[15]\
 	,m_day[15],m_TheFour[15],m_Nsleep[15],m_GV[15],m_PT[15],m_Health[15]\
 	,m_Energy[15], m_Spirit[15], m_WhiteHouse[15], m_readgood[15], m_PD[15]\
 	,m_BP[15],m_Hgrowth[15],m_Egrowth[15],m_Sgrowth[15], m_DM[15], m_fruit[15]\
@@ -144,7 +147,7 @@ int check_data()// to read yesterday's data
 	>>m_cnpaper>>total_cnp>>m_enpaper>>total_enp>>m_slpe>>total_slpe>>\
 	m_spt>>total_spt>>m_OTG>>total_OTG>>m_PP>>total_PP\
 	>>m_rv>>total_rv>>m_S>>total_S>>m_gwkd>>total_gmwd\
-	>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_MM>>total_MM\
+	>>m_uhi>>total_uhi>>m_UNB>>total_UNB>>m_ME>>total_ME\
 	>>m_CM>>total_CM>>m_day>>total_day>>m_TheFour>>total_TheFour>>m_Nsleep\
 	>>total_Nsleep>>m_GV>>total_GV>>m_PT>>total_PT>>m_Health\
 	>>yesterday_H>>m_Energy>>yesterday_E>>m_Spirit>>yesterday_S>>m_WhiteHouse\
@@ -170,7 +173,7 @@ int check_data()// to read yesterday's data
 	<<"% ("<<showpos<<S_growth<<"%)"<<endl<<endl;
 
 /////////////Set Dream Here///////////
-	cout<<"	* Buy Macbook Pro: "<<noshowpos<<(int)((100 -\
+	cout<<"	* Health recovery: "<<noshowpos<<(int)((100 -\
 	yesterday_H)/H_growth)<<" days left."<<endl<<endl;
 ////////////Set Dream END////////////
 
