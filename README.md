@@ -3,7 +3,7 @@
 Enjoy your life as an adventure game
 
 
-![background](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/1.jpg)
+![background](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/x.jpg)
 -----
 
 
@@ -66,13 +66,13 @@ Enjoy your life as an adventure game
 ------
 ## v1.3 update log
 #### 自胡马窥江去后，废池乔木，犹厌言兵
-![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/2.jpg)
+![yesterday](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx2.jpg)
 > + Add new feature: record how long you leave old days(v1.3)
 
 -----
 ## v1.4 update log
 #### 静以修身，俭以养德。淡泊明志，宁静致远。
-![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/3.jpg)
+![newlifecome](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx3.jpg)
 > + Add a new item: read < The Four > (v1.4).
 > + Add new feature: V-Day Award System now online(v1.4)
 > + Add a new item: Lunch break(Noon sleep)（v1.4). 
@@ -83,7 +83,7 @@ Enjoy your life as an adventure game
 #### 我累了，也老了，不想再学如何去爱，就让我一个人孤独终老吧。 ——《爱到尽头》
 #### However, we are still young. Write down your daily life with this update!
 
-![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/4.jpg)
+![Young](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx4.jpg)
 > + Add new fearture: Now you can write note in your diary(v1.5), mark your interesting life down!
 > + Add a new item.
 
@@ -92,7 +92,7 @@ Enjoy your life as an adventure game
 #### Happiness is about having each tiny wish come true.
 #### 幸福就是每个微小愿望的达成。
 
-![Happy](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/5.jpg)
+![Happy](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx5.jpg)
 > + Add new feature: All new H-E-S analysis system(including H-E-S Award system)
 > + Improve: The function order and diary format.
 
@@ -102,7 +102,7 @@ Enjoy your life as an adventure game
 
 ## v2.0 update log
 #### 料峭春风吹酒醒，微冷，山头斜照却相迎。
-![sunnymount](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/7.jpg)
+![sunnymount](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx7.jpg)
 > + New UI: You can choose 4 different functions when you run the program.
 > + New feature: Now you can make a plan in the morning and check your plan list in the evening.
 > + Other small improvement.
@@ -111,7 +111,7 @@ Enjoy your life as an adventure game
 ## v2.1 update log
 #### 晚风拂柳笛声残，夕阳山外山。天之涯，地之角，知交半零落。
 
-![sunset](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/8.jpg)
+![sunset](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx8.jpg)
 > + Improved Plan system: Now your plan score will be included in the total score and H-E-S system(If you can finish your plan).
 > + Improved score plan.
 > + Other improvement.
@@ -127,7 +127,7 @@ Enjoy your life as an adventure game
 
 ----------------
 ## Secret Garden
-![SecretGarden](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/6.jpg)
+![SecretGarden](https://raw.githubusercontent.com/anothersnoopy/Markdown_photos/master/xx6.jpg)
 
 > This is a secret garden.
 
